@@ -1,0 +1,6 @@
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\bin\Debug\CinemaResourcesLibrary.dll
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\bin\Debug\CinemaResourcesLibrary.pdb
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\obj\Debug\CinemaResourcesLibrary.csproj.AssemblyReference.cache
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\obj\Debug\CinemaResourcesLibrary.csproj.CoreCompileInputs.cache
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\obj\Debug\CinemaResourcesLibrary.dll
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\obj\Debug\CinemaResourcesLibrary.pdb
