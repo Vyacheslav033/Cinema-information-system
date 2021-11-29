@@ -20,3 +20,4 @@ D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementAp
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.MenuForm.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.MoviePosterForm.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.EditDatabaseForm.resources
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.AddMovieForm.resources

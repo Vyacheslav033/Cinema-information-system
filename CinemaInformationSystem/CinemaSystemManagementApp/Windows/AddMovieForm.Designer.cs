@@ -82,7 +82,7 @@ namespace CinemaSystemManagementApp
             this.MainPanel.Controls.Add(this.panel2);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(608, 944);
             this.MainPanel.TabIndex = 5;
@@ -111,7 +111,7 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.lblError);
             this.panel1.Controls.Add(this.NameTxt);
             this.panel1.Location = new System.Drawing.Point(37, 167);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 748);
             this.panel1.TabIndex = 1;
@@ -121,7 +121,7 @@ namespace CinemaSystemManagementApp
             this.panel3.Controls.Add(this.pnlError);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(539, 43);
             this.panel3.TabIndex = 17;
@@ -137,7 +137,7 @@ namespace CinemaSystemManagementApp
             this.pnlError.Name = "pnlError";
             this.pnlError.Size = new System.Drawing.Size(539, 43);
             this.pnlError.TabIndex = 18;
-            this.pnlError.Text = "Название фильма";
+            this.pnlError.Text = "Информация о фильме";
             this.pnlError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.pnlError.Visible = false;
             // 
@@ -146,7 +146,7 @@ namespace CinemaSystemManagementApp
             this.DatePicker.CustomFormat = "yyyy-MM-dd";
             this.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DatePicker.Location = new System.Drawing.Point(45, 271);
-            this.DatePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.DatePicker.MaxDate = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
             this.DatePicker.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
             this.DatePicker.Name = "DatePicker";
@@ -164,7 +164,7 @@ namespace CinemaSystemManagementApp
             this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnDelete.Location = new System.Drawing.Point(180, 639);
-            this.BtnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(112, 42);
             this.BtnDelete.TabIndex = 15;
@@ -182,7 +182,7 @@ namespace CinemaSystemManagementApp
             this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnAdd.Location = new System.Drawing.Point(47, 639);
-            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(112, 42);
             this.BtnAdd.TabIndex = 14;
@@ -195,7 +195,7 @@ namespace CinemaSystemManagementApp
             this.AgeComBox.DisplayMember = "Возраст";
             this.AgeComBox.FormattingEnabled = true;
             this.AgeComBox.Location = new System.Drawing.Point(45, 578);
-            this.AgeComBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AgeComBox.Margin = new System.Windows.Forms.Padding(4);
             this.AgeComBox.Name = "AgeComBox";
             this.AgeComBox.Size = new System.Drawing.Size(160, 24);
             this.AgeComBox.TabIndex = 13;
@@ -224,7 +224,7 @@ namespace CinemaSystemManagementApp
             // TxtCountry
             // 
             this.TxtCountry.Location = new System.Drawing.Point(47, 510);
-            this.TxtCountry.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtCountry.Margin = new System.Windows.Forms.Padding(4);
             this.TxtCountry.Name = "TxtCountry";
             this.TxtCountry.Size = new System.Drawing.Size(441, 22);
             this.TxtCountry.TabIndex = 10;
@@ -263,7 +263,7 @@ namespace CinemaSystemManagementApp
             "Преступление",
             "Военный"});
             this.GenreBox.Location = new System.Drawing.Point(45, 345);
-            this.GenreBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GenreBox.Margin = new System.Windows.Forms.Padding(4);
             this.GenreBox.MultiColumn = true;
             this.GenreBox.Name = "GenreBox";
             this.GenreBox.Size = new System.Drawing.Size(467, 106);
@@ -292,7 +292,7 @@ namespace CinemaSystemManagementApp
             // TxtProduce
             // 
             this.TxtProduce.Location = new System.Drawing.Point(44, 203);
-            this.TxtProduce.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtProduce.Margin = new System.Windows.Forms.Padding(4);
             this.TxtProduce.Name = "TxtProduce";
             this.TxtProduce.Size = new System.Drawing.Size(441, 22);
             this.TxtProduce.TabIndex = 4;
@@ -310,7 +310,7 @@ namespace CinemaSystemManagementApp
             // TxtDuration
             // 
             this.TxtDuration.Location = new System.Drawing.Point(44, 148);
-            this.TxtDuration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtDuration.Margin = new System.Windows.Forms.Padding(4);
             this.TxtDuration.Name = "TxtDuration";
             this.TxtDuration.Size = new System.Drawing.Size(441, 22);
             this.TxtDuration.TabIndex = 2;
@@ -328,7 +328,7 @@ namespace CinemaSystemManagementApp
             // NameTxt
             // 
             this.NameTxt.Location = new System.Drawing.Point(44, 87);
-            this.NameTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NameTxt.Margin = new System.Windows.Forms.Padding(4);
             this.NameTxt.Name = "NameTxt";
             this.NameTxt.Size = new System.Drawing.Size(441, 22);
             this.NameTxt.TabIndex = 0;
@@ -340,7 +340,7 @@ namespace CinemaSystemManagementApp
             this.panel2.Controls.Add(this.HeaderLabel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(608, 145);
             this.panel2.TabIndex = 0;
@@ -353,13 +353,14 @@ namespace CinemaSystemManagementApp
             this.Exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Exit.ForeColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(555, 11);
+            this.Exit.Location = new System.Drawing.Point(565, 9);
             this.Exit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Exit.Name = "Exit";
             this.Exit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Exit.Size = new System.Drawing.Size(30, 29);
             this.Exit.TabIndex = 1;
             this.Exit.Text = "X";
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // HeaderLabel
             // 
@@ -372,7 +373,7 @@ namespace CinemaSystemManagementApp
             this.HeaderLabel.Name = "HeaderLabel";
             this.HeaderLabel.Size = new System.Drawing.Size(608, 145);
             this.HeaderLabel.TabIndex = 0;
-            this.HeaderLabel.Text = "Add and Edit";
+            this.HeaderLabel.Text = "Добавить фильм";
             this.HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tmrError
@@ -387,8 +388,8 @@ namespace CinemaSystemManagementApp
             this.ClientSize = new System.Drawing.Size(608, 944);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.panelHead);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddMovieForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add/Edit Films";

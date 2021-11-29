@@ -59,7 +59,7 @@ namespace CinemaSystemManagementApp
             this.MainPanel.Controls.Add(this.panel2);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(439, 489);
             this.MainPanel.TabIndex = 3;
@@ -92,11 +92,11 @@ namespace CinemaSystemManagementApp
             this.BtnPrintAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPrintAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnPrintAll.Location = new System.Drawing.Point(20, 186);
-            this.BtnPrintAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnPrintAll.Margin = new System.Windows.Forms.Padding(4);
             this.BtnPrintAll.Name = "BtnPrintAll";
             this.BtnPrintAll.Size = new System.Drawing.Size(406, 53);
             this.BtnPrintAll.TabIndex = 4;
-            this.BtnPrintAll.Text = "Вывести фильмы";
+            this.BtnPrintAll.Text = "Фильмы";
             this.BtnPrintAll.UseVisualStyleBackColor = false;
             this.BtnPrintAll.Click += new System.EventHandler(this.BtnPrintAll_Click);
             // 
@@ -109,8 +109,8 @@ namespace CinemaSystemManagementApp
             this.BuyPlace.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.BuyPlace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuyPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BuyPlace.Location = new System.Drawing.Point(20, 350);
-            this.BuyPlace.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BuyPlace.Location = new System.Drawing.Point(20, 340);
+            this.BuyPlace.Margin = new System.Windows.Forms.Padding(4);
             this.BuyPlace.Name = "BuyPlace";
             this.BuyPlace.Size = new System.Drawing.Size(407, 53);
             this.BuyPlace.TabIndex = 3;
@@ -127,12 +127,13 @@ namespace CinemaSystemManagementApp
             this.PrintSeans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PrintSeans.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PrintSeans.Location = new System.Drawing.Point(20, 264);
-            this.PrintSeans.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PrintSeans.Margin = new System.Windows.Forms.Padding(4);
             this.PrintSeans.Name = "PrintSeans";
             this.PrintSeans.Size = new System.Drawing.Size(407, 53);
             this.PrintSeans.TabIndex = 2;
-            this.PrintSeans.Text = "Просмотреть сеансы";
+            this.PrintSeans.Text = "Сеансы";
             this.PrintSeans.UseVisualStyleBackColor = false;
+            this.PrintSeans.Click += new System.EventHandler(this.PrintSeans_Click);
             // 
             // panel2
             // 
@@ -141,7 +142,7 @@ namespace CinemaSystemManagementApp
             this.panel2.Controls.Add(this.panelHead);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(439, 145);
             this.panel2.TabIndex = 0;
@@ -153,7 +154,7 @@ namespace CinemaSystemManagementApp
             this.Exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Exit.ForeColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(397, 11);
+            this.Exit.Location = new System.Drawing.Point(396, 9);
             this.Exit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(30, 29);
@@ -174,7 +175,7 @@ namespace CinemaSystemManagementApp
             this.panelHead.Name = "panelHead";
             this.panelHead.Size = new System.Drawing.Size(439, 145);
             this.panelHead.TabIndex = 0;
-            this.panelHead.Text = "Leviafan";
+            this.panelHead.Text = "Меню";
             this.panelHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MenuForm
@@ -184,7 +185,7 @@ namespace CinemaSystemManagementApp
             this.ClientSize = new System.Drawing.Size(439, 489);
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuForm";
             this.Text = "A";
             this.MainPanel.ResumeLayout(false);

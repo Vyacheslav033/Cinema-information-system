@@ -23,5 +23,15 @@ namespace CinemaSystemManagementApp
             var addMovieForm = new AddMovieForm();
             addMovieForm.Show();
         }
+
+        private void textSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

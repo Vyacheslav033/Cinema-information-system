@@ -27,8 +27,8 @@ namespace CinemaSystemManagementApp
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
-            //Menu menu = new Menu();
-            //menu.Show();
+            var menu = new MenuForm();
+            menu.Show();
         }
 
         private void Exit_MouseEnter(object sender, EventArgs e)

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
 {
@@ -49,11 +44,6 @@ namespace CinemaSystemManagementApp
             lastPoint = new Point(e.X, e.Y);
         }
 
-        private void printAllFilms_Click(object sender, EventArgs e)
-        {
-            DB db;
-        }
-
         private void EnterAdm_MouseEnter(object sender, EventArgs e)
         {
             EnterAdm.ForeColor = Color.FromArgb(205, 254, 247);
@@ -71,11 +61,24 @@ namespace CinemaSystemManagementApp
             registrationForm.Show();
         }
 
+        /// <summary>
+        /// Вывести фильмы.
+        /// </summary>
         private void BtnPrintAll_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var Allfilms = new MoviePosterForm();
-            Allfilms.Show();
+            var films = new MoviePosterForm( Request.Get(RequestType.Movies), "Фильмы" );
+            films.Show();
+        }
+
+        /// <summary>
+        /// Вывести сеансы.
+        /// </summary>
+        private void PrintSeans_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var sessions = new MoviePosterForm(Request.Get(RequestType.Sessions) , "Сеансы");
+            sessions.Show();
         }
     }
 }

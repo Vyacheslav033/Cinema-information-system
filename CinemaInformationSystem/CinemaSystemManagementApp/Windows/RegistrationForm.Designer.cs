@@ -34,16 +34,16 @@ namespace CinemaSystemManagementApp
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.MainPanel = new System.Windows.Forms.Panel();
             this.ButtLogin = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.UserPassword = new System.Windows.Forms.TextBox();
             this.UserLogin = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHead
@@ -77,7 +77,7 @@ namespace CinemaSystemManagementApp
             this.MainPanel.Controls.Add(this.panel2);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(509, 551);
             this.MainPanel.TabIndex = 4;
@@ -95,66 +95,13 @@ namespace CinemaSystemManagementApp
             this.ButtLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtLogin.Location = new System.Drawing.Point(183, 462);
-            this.ButtLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtLogin.Margin = new System.Windows.Forms.Padding(4);
             this.ButtLogin.Name = "ButtLogin";
             this.ButtLogin.Size = new System.Drawing.Size(164, 60);
             this.ButtLogin.TabIndex = 5;
             this.ButtLogin.Text = "Войти";
             this.ButtLogin.UseVisualStyleBackColor = false;
             this.ButtLogin.Click += new System.EventHandler(this.ButtLogin_Click);
-            // 
-            // UserPassword
-            // 
-            this.UserPassword.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UserPassword.Location = new System.Drawing.Point(141, 342);
-            this.UserPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.UserPassword.Name = "UserPassword";
-            this.UserPassword.Size = new System.Drawing.Size(321, 53);
-            this.UserPassword.TabIndex = 2;
-            this.UserPassword.UseSystemPasswordChar = true;
-            this.UserPassword.Enter += new System.EventHandler(this.UserPassword_Enter);
-            this.UserPassword.Leave += new System.EventHandler(this.UserPassword_Leave);
-            // 
-            // UserLogin
-            // 
-            this.UserLogin.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UserLogin.Location = new System.Drawing.Point(141, 190);
-            this.UserLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.UserLogin.Multiline = true;
-            this.UserLogin.Name = "UserLogin";
-            this.UserLogin.Size = new System.Drawing.Size(321, 70);
-            this.UserLogin.TabIndex = 1;
-            this.UserLogin.Enter += new System.EventHandler(this.UserLogin_Enter);
-            this.UserLogin.Leave += new System.EventHandler(this.UserLogin_Leave);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.Exit);
-            this.panel2.Controls.Add(this.panelHead);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(509, 145);
-            this.panel2.TabIndex = 0;
-            // 
-            // Exit
-            // 
-            this.Exit.AutoSize = true;
-            this.Exit.BackColor = System.Drawing.Color.Black;
-            this.Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Exit.ForeColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(456, 11);
-            this.Exit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(30, 29);
-            this.Exit.TabIndex = 1;
-            this.Exit.Text = "X";
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            this.Exit.MouseEnter += new System.EventHandler(this.Exit_MouseEnter);
-            this.Exit.MouseLeave += new System.EventHandler(this.Exit_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -178,6 +125,59 @@ namespace CinemaSystemManagementApp
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // UserPassword
+            // 
+            this.UserPassword.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserPassword.Location = new System.Drawing.Point(141, 342);
+            this.UserPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.UserPassword.Name = "UserPassword";
+            this.UserPassword.Size = new System.Drawing.Size(321, 53);
+            this.UserPassword.TabIndex = 2;
+            this.UserPassword.UseSystemPasswordChar = true;
+            this.UserPassword.Enter += new System.EventHandler(this.UserPassword_Enter);
+            this.UserPassword.Leave += new System.EventHandler(this.UserPassword_Leave);
+            // 
+            // UserLogin
+            // 
+            this.UserLogin.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserLogin.Location = new System.Drawing.Point(141, 190);
+            this.UserLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.UserLogin.Multiline = true;
+            this.UserLogin.Name = "UserLogin";
+            this.UserLogin.Size = new System.Drawing.Size(321, 70);
+            this.UserLogin.TabIndex = 1;
+            this.UserLogin.Enter += new System.EventHandler(this.UserLogin_Enter);
+            this.UserLogin.Leave += new System.EventHandler(this.UserLogin_Leave);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.Exit);
+            this.panel2.Controls.Add(this.panelHead);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(509, 145);
+            this.panel2.TabIndex = 0;
+            // 
+            // Exit
+            // 
+            this.Exit.AutoSize = true;
+            this.Exit.BackColor = System.Drawing.Color.Black;
+            this.Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Exit.ForeColor = System.Drawing.Color.White;
+            this.Exit.Location = new System.Drawing.Point(475, 9);
+            this.Exit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(30, 29);
+            this.Exit.TabIndex = 1;
+            this.Exit.Text = "X";
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            this.Exit.MouseEnter += new System.EventHandler(this.Exit_MouseEnter);
+            this.Exit.MouseLeave += new System.EventHandler(this.Exit_MouseLeave);
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -185,16 +185,16 @@ namespace CinemaSystemManagementApp
             this.ClientSize = new System.Drawing.Size(509, 551);
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegistrationForm";
             this.RightToLeftLayout = true;
             this.Text = "LoginForm";
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

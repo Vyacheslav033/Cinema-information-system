@@ -13,13 +13,17 @@ namespace CinemaSystemManagementApp
 {
     public partial class MoviePosterForm : Form
     {
-        private SqlConnection sqlConnection;
-        private SqlDataAdapter adapter = null;
-        private DataTable table = null;
+        private string request;
 
-        public MoviePosterForm()
+        public MoviePosterForm(string request, string title)
         {
             InitializeComponent();
+
+            this.WindowState = FormWindowState.Normal;
+
+            this.request = request;
+            this.panelHead.Text = title;
+
             LoadData();
         }
 
@@ -78,14 +82,20 @@ namespace CinemaSystemManagementApp
 
         private async void PrintFilms_Load(object sender, EventArgs e)
         {
-            string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\DataForKino\PIC\Database1.mdf;Integrated Security=True;Connect Timeout=30";
-            sqlConnection = new SqlConnection(connection);
+            string connection =
+                @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\Database\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+            var sqlConnection = new SqlConnection(connection);
             await sqlConnection.OpenAsync();
 
-            adapter = new SqlDataAdapter("SELECT [Фильмы].[Название], [Жанры].[Жанр], [Фильмы].[Дата выхода], [Фильмы].[Длительность], [Возраст].[Возраст], [Режиссер].[Режиссер] FROM[Фильмы] INNER JOIN[Возраст] ON [Фильмы].[Возраст_ID] = [Возраст].[ID] INNER JOIN [Режиссер] ON [Фильмы].[Режиссер_ID] =[Режиссер].[ID] INNER JOIN [Фильмы-Жанры] ON [Фильмы-Жанры].[Фильмы_ID] = [Фильмы].[ID] INNER JOIN [Жанры] ON [Фильмы-Жанры].[Жанры_ID] = [Жанры].[ID]", sqlConnection);
-            table = new DataTable();
+            var adapter = new SqlDataAdapter(this.request, sqlConnection);
+            var table = new DataTable();
+
             adapter.Fill(table);
             tableFilms.DataSource = table;
+
+            sqlConnection.Close();
         }
+
+      
     }
 }

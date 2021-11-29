@@ -29,7 +29,7 @@ namespace CinemaSystemManagementApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelHead = new System.Windows.Forms.Label();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.tableFilms = new System.Windows.Forms.DataGridView();
@@ -42,16 +42,16 @@ namespace CinemaSystemManagementApp
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnRef = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.tableFilms)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainPanel.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHead
@@ -63,9 +63,9 @@ namespace CinemaSystemManagementApp
             this.panelHead.Location = new System.Drawing.Point(0, 0);
             this.panelHead.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.panelHead.Name = "panelHead";
-            this.panelHead.Size = new System.Drawing.Size(1657, 145);
+            this.panelHead.Size = new System.Drawing.Size(1687, 145);
             this.panelHead.TabIndex = 0;
-            this.panelHead.Text = "Leviafan\r\nEdit";
+            this.panelHead.Text = "Редактирование афиши";
             this.panelHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnAdd
@@ -77,10 +77,10 @@ namespace CinemaSystemManagementApp
             this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
             this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnAdd.Location = new System.Drawing.Point(52, 27);
-            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAdd.Location = new System.Drawing.Point(28, 43);
+            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(112, 42);
+            this.BtnAdd.Size = new System.Drawing.Size(112, 38);
             this.BtnAdd.TabIndex = 1;
             this.BtnAdd.Text = "Add";
             this.BtnAdd.UseVisualStyleBackColor = false;
@@ -90,8 +90,8 @@ namespace CinemaSystemManagementApp
             // 
             this.tableFilms.AllowUserToAddRows = false;
             this.tableFilms.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tableFilms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableFilms.BackgroundColor = System.Drawing.Color.White;
             this.tableFilms.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -105,12 +105,12 @@ namespace CinemaSystemManagementApp
             this.Column6,
             this.Column7});
             this.tableFilms.Location = new System.Drawing.Point(28, 106);
-            this.tableFilms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableFilms.Margin = new System.Windows.Forms.Padding(4);
             this.tableFilms.Name = "tableFilms";
             this.tableFilms.ReadOnly = true;
             this.tableFilms.RowHeadersVisible = false;
             this.tableFilms.RowHeadersWidth = 51;
-            this.tableFilms.Size = new System.Drawing.Size(1533, 598);
+            this.tableFilms.Size = new System.Drawing.Size(1314, 597);
             this.tableFilms.TabIndex = 0;
             // 
             // Column1
@@ -181,9 +181,9 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.BtnAdd);
             this.panel1.Controls.Add(this.tableFilms);
             this.panel1.Location = new System.Drawing.Point(63, 174);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1536, 711);
+            this.panel1.Size = new System.Drawing.Size(1385, 728);
             this.panel1.TabIndex = 1;
             // 
             // BtnRef
@@ -195,32 +195,44 @@ namespace CinemaSystemManagementApp
             this.BtnRef.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
             this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnRef.Location = new System.Drawing.Point(172, 27);
-            this.BtnRef.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnRef.Location = new System.Drawing.Point(170, 43);
+            this.BtnRef.Margin = new System.Windows.Forms.Padding(4);
             this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(121, 42);
+            this.BtnRef.Size = new System.Drawing.Size(121, 38);
             this.BtnRef.TabIndex = 4;
             this.BtnRef.Text = "Refresh";
             this.BtnRef.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CinemaSystemManagementApp.Properties.Resources.search;
+            this.pictureBox1.Location = new System.Drawing.Point(990, 43);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(37, 34);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // textSearch
             // 
-            this.textSearch.Location = new System.Drawing.Point(1231, 43);
-            this.textSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textSearch.Location = new System.Drawing.Point(1049, 43);
+            this.textSearch.Margin = new System.Windows.Forms.Padding(4);
             this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(293, 22);
+            this.textSearch.Size = new System.Drawing.Size(293, 38);
             this.textSearch.TabIndex = 2;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(1)))), ((int)(((byte)(8)))));
             this.MainPanel.Controls.Add(this.panel1);
             this.MainPanel.Controls.Add(this.panel2);
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1657, 927);
+            this.MainPanel.Size = new System.Drawing.Size(1687, 927);
             this.MainPanel.TabIndex = 5;
             // 
             // panel2
@@ -230,9 +242,9 @@ namespace CinemaSystemManagementApp
             this.panel2.Controls.Add(this.panelHead);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1657, 145);
+            this.panel2.Size = new System.Drawing.Size(1687, 145);
             this.panel2.TabIndex = 0;
             // 
             // Exit
@@ -242,40 +254,31 @@ namespace CinemaSystemManagementApp
             this.Exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Exit.ForeColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(1652, 11);
+            this.Exit.Location = new System.Drawing.Point(1418, 22);
             this.Exit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(30, 29);
             this.Exit.TabIndex = 1;
             this.Exit.Text = "X";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CinemaSystemManagementApp.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(1171, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 34);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // EditDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1657, 927);
+            this.ClientSize = new System.Drawing.Size(1480, 927);
             this.Controls.Add(this.MainPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditDatabaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditBD";
             ((System.ComponentModel.ISupportInitialize)(this.tableFilms)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.MainPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
