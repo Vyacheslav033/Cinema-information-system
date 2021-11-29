@@ -1,5 +1,4 @@
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.AssemblyReference.cache
-D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.Windows.LoginForm.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.Properties.Resources.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.GenerateResource.cache
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.CoreCompileInputs.cache
@@ -12,3 +11,12 @@ D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementAp
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\CinemaResourcesLibrary.pdb
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.exe
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.pdb
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\Images\lock.png
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\Images\lock1.png
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\Images\search.png
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\Images\user.png
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\Images\user2.png
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.RegistrationForm.resources
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.MenuForm.resources
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.MoviePosterForm.resources
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.EditDatabaseForm.resources
