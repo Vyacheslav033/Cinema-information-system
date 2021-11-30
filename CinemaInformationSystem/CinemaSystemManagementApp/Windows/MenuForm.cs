@@ -13,6 +13,7 @@ namespace CinemaSystemManagementApp
         public MenuForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void Exit_Click(object sender, EventArgs e)
         {
@@ -67,7 +68,7 @@ namespace CinemaSystemManagementApp
         private void BtnPrintAll_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var films = new MoviePosterForm( Request.Get(RequestType.Movies), "Фильмы" );
+            var films = new MoviePosterForm(Requestss.GetFilms(), "Фильмы" );
             films.Show();
         }
 
@@ -77,7 +78,7 @@ namespace CinemaSystemManagementApp
         private void PrintSeans_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var sessions = new MoviePosterForm(Request.Get(RequestType.Sessions) , "Сеансы");
+            var sessions = new MoviePosterForm(Requestss.GetSessions() , "Сеансы");
             sessions.Show();
         }
     }

@@ -1,12 +1,10 @@
-﻿using System;
+﻿using CinemaResourcesLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CinemaSystemManagementApp
@@ -19,6 +17,7 @@ namespace CinemaSystemManagementApp
         {
             InitializeComponent();
 
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Normal;
 
             this.request = request;
@@ -82,18 +81,27 @@ namespace CinemaSystemManagementApp
 
         private async void PrintFilms_Load(object sender, EventArgs e)
         {
-            string connection =
-                @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\Database\Database1.mdf;Integrated Security=True;Connect Timeout=30";
-            var sqlConnection = new SqlConnection(connection);
-            await sqlConnection.OpenAsync();
 
-            var adapter = new SqlDataAdapter(this.request, sqlConnection);
-            var table = new DataTable();
+            var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
 
-            adapter.Fill(table);
-            tableFilms.DataSource = table;
 
-            sqlConnection.Close();
+            var command = new MySQLСommand(connector);
+
+            tableFilms.DataSource = command.RunRequest(request);
+
+
+            //string connection =
+            //    @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\DataForKino\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+            //var sqlConnection = new SqlConnection(connection);
+            //await sqlConnection.OpenAsync();
+
+            //var adapter = new SqlDataAdapter(this.request, sqlConnection);
+            //var table = new DataTable();
+
+            //adapter.Fill(table);
+            //tableFilms.DataSource = table;
+
+            //sqlConnection.Close();
         }
 
       

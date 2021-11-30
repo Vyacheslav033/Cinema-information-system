@@ -17,6 +17,7 @@ namespace CinemaSystemManagementApp
         public RegistrationForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.UserPassword.UseSystemPasswordChar = false;
             UserLogin.Text = "Введите логин";
             UserLogin.ForeColor = Color.Gray;
