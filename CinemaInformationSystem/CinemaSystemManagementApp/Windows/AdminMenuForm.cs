@@ -3,26 +3,25 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace CinemaSystemManagementApp
 {
-    public partial class MoviePosterForm : Form
+    public partial class AdminMenuForm : Form
     {
         private string request;
 
-        public MoviePosterForm(string request, string title)
+        public AdminMenuForm()
         {
             InitializeComponent();
 
             this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Normal;
 
-            this.request = request;
-            this.panelHead.Text = title;
 
             LoadData();
         }
@@ -86,9 +85,6 @@ namespace CinemaSystemManagementApp
             var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
 
 
-            var command = new MySQLСommand(connector);
-
-            tableFilms.DataSource = command.RunRequest(request);
 
 
             //string connection =
@@ -104,7 +100,5 @@ namespace CinemaSystemManagementApp
 
             //sqlConnection.Close();
         }
-
-      
     }
 }

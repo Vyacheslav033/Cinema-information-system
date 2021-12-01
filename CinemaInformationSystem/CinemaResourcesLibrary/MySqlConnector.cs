@@ -16,7 +16,7 @@ namespace CinemaResourcesLibrary
         /// Инициализатор класса MySqlConnector.
         /// </summary>
         /// <param name="server"> Сервер. </param>
-        /// <param name="database"> Название база данных. </param>
+        /// <param name="database"> Имя база данных. </param>
         /// <param name="uid"> Идентификатор пользователя. </param>
         /// <param name="password"> Пароль. </param>
         public MySqlConnector(string server, string database, string uid, string password)
@@ -42,6 +42,7 @@ namespace CinemaResourcesLibrary
             }
 
             this.connectingLine = $"Server={server};Database={database};Uid={uid};pwd={password};";
+            myConnection = new MySqlConnection(connectingLine);
         }
 
         /// <summary>
@@ -49,8 +50,10 @@ namespace CinemaResourcesLibrary
         /// </summary>
         public void Connect()
         {
-            myConnection = new MySqlConnection(connectingLine);
-            myConnection.Open();
+            if (myConnection.State == ConnectionState.Closed)
+            {
+                myConnection.Open();
+            }     
         }
 
         /// <summary>
@@ -58,11 +61,14 @@ namespace CinemaResourcesLibrary
         /// </summary>
         public void Disconnect()
         {
-            myConnection.Close();
+            if (myConnection.State == ConnectionState.Open)
+            {
+                myConnection.Close();
+            }
         }
 
         /// <summary>
-        /// Положение подключения.
+        /// Статус подключения.
         /// </summary>
         public ConnectionState State
         {

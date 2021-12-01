@@ -68,7 +68,7 @@ namespace CinemaSystemManagementApp
         private void BtnPrintAll_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var films = new MoviePosterForm(Requestss.GetFilms(), "Фильмы" );
+            var films = new MoviePosterForm(Requests.GetFilms(), "Фильмы" );
             films.Show();
         }
 
@@ -78,7 +78,7 @@ namespace CinemaSystemManagementApp
         private void PrintSeans_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var sessions = new MoviePosterForm(Requestss.GetSessions() , "Сеансы");
+            var sessions = new MoviePosterForm(Requests.GetSessions() , "Сеансы");
             sessions.Show();
         }
     }

@@ -27,4 +27,3 @@ D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\b
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\bin\Debug\System.Memory.xml
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\bin\Debug\System.Numerics.Vectors.xml
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\C#\Cinema Information System\CinemaInformationSystem\CinemaResourcesLibrary\obj\Debug\CinemaResourcesLibrary.csproj.CopyComplete

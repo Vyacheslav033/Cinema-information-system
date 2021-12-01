@@ -44,4 +44,5 @@ D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementAp
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\K4os.Compression.LZ4.xml
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\K4os.Hash.xxHash.xml
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\System.Numerics.Vectors.xml
-D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.CopyComplete
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.AdminMenuForm.resources
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.AddSessionForm.resources

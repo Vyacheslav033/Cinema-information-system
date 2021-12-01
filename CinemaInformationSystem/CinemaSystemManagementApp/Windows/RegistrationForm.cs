@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CinemaResourcesLibrary;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -103,46 +105,49 @@ namespace CinemaSystemManagementApp
             String loginUser = UserLogin.Text;
             String passUser = UserPassword.Text;
 
-            if (loginUser == "Введите логин")
+            if (string.IsNullOrWhiteSpace(loginUser))
             {
-                MessageBox.Show("Введите логин");
-                return;
+                MessageBox.Show("Введите логин!");
             }
-            if (passUser == "Введите пароль")
+            else if (string.IsNullOrWhiteSpace(passUser))
             {
-                MessageBox.Show("Введите пароль");
-                return;
+                MessageBox.Show("Введите пароль!");
+                
+            }
+            else
+            {
+                var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
+
+                DataTable table = new DataTable();
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+                MySqlCommand command = new MySqlCommand("SELECT login, password FROM `сотрудники` WHERE `login` = @uL AND `password` = @uP", connector.Connection);
+                command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
+                command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
+
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+
+                if (table.Rows.Count > 0)
+                {
+                    MessageBox.Show("Успешно");
+                    this.Hide();
+                    var admin = new AdminMenuForm();
+                    admin.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Не успешно");
+                    this.UserPassword.UseSystemPasswordChar = false;
+                    UserLogin.Text = "Введите логин";
+                    UserLogin.ForeColor = Color.Gray;
+                    UserPassword.Text = "Введите пароль";
+                    UserPassword.ForeColor = Color.Gray;
+                }
             }
 
-            DB db = new DB();
 
-            DataTable table = new DataTable();
-
-            //MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            //MySqlCommand command = new MySqlCommand("SELECT login, password FROM `сотрудники` WHERE `login` = @uL AND `password` = @uP", db.GetConnection());
-            //command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
-            //command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
-
-            //adapter.SelectCommand = command;
-            //adapter.Fill(table);
-
-            //if (table.Rows.Count > 0)
-            //{
-            //    MessageBox.Show("Успешно");
-            //    this.Hide();
-            //    AdmMenu admin = new AdmMenu();
-            //    admin.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Не успешно");
-            //    this.UserPassword.UseSystemPasswordChar = false;
-            //    UserLogin.Text = "Введите логин";
-            //    UserLogin.ForeColor = Color.Gray;
-            //    UserPassword.Text = "Введите пароль";
-            //    UserPassword.ForeColor = Color.Gray;
-            //}
         }
     }
 }

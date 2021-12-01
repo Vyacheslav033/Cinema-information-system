@@ -85,13 +85,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgeDTO.cs" />
-    <Compile Include="DB.cs" />
     <Compile Include="MySqlConnector.cs" />
-    <Compile Include="Requestss.cs" />
+    <Compile Include="Requests.cs" />
     <Compile Include="MySQLСommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests.cs" />
-    <Compile Include="Requests\Request.cs" />
+    <Compile Include="Requests\Requestsss.cs" />
     <Compile Include="Requests\RequestType.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaResourcesLibrary
 {
-    public static class Request
+    public static class Requestsss
     {
         public static string Get(RequestType requestType)
         {

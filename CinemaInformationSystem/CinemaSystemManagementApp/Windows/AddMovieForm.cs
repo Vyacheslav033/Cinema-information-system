@@ -1,13 +1,8 @@
-﻿using CinemaResourcesLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
 {
@@ -16,158 +11,137 @@ namespace CinemaSystemManagementApp
         public AddMovieForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            AllowedAgeBox.DropDownStyle = ComboBoxStyle.DropDownList;
             LoadAgeData();
-        }
-
-        private void AgeCom()
-        {
-
-        }
-
-        void ShowError(string Text)
-        {
-            pnlError.Text = Text;
-            pnlError.Visible = true;
-            tmrError.Start();
-        }
-
-        private void tmrError_Tick(object sender, EventArgs e)
-        {
-            tmrError.Stop();
-            pnlError.Visible = false;
-        }
+        }       
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            //прописать валидаторы ко всем
-            if (NameTxt.Text == "")
+            int movieDuration = 0;
+            string movieName = MovieNameBox.Text; //название
+            string movieProduce = MovieProduceBox.Text; //продюссер
+            DateTime movieDate = MovieDatePicker.Value; //дата
+            string movieCountry = MovieCountryBox.Text; //получение страны
+            string allowedAge = AllowedAgeBox.Text;
+
+            if (IsEmptyValue(movieName))
             {
-                ShowError("Название фильма");
+                MessageBox.Show("Введите название фильма!");
                 return;
             }
-
-            if (TxtDuration.Text == "")
+            else if ( !int.TryParse(MovieDurationBox.Text, out movieDuration) )
             {
-                ShowError("Продолжительность");
+                MessageBox.Show("Введите продолжительность фильма!");
                 return;
             }
-            else
+            else if (movieDuration < 60)
             {
-                try
-                {
-                    Convert.ToInt32(TxtDuration.Text);
-                }
-                catch
-                {
-                    ShowError("Введите в продолжительность числа");
-                    return;
-                }
-            }
-
-            //?????????????????????????
-            if (TxtProduce.Text == "")
-            {
-                ShowError("Режиссер");
+                MessageBox.Show("Продолжительность фильма должна быть не меньше 60 минут!");
                 return;
             }
-            else
+            else if(IsEmptyValue(movieProduce))
             {
-                try
-                {
-                    Convert.ToString(TxtProduce.Text);
-                }
-                catch
-                {
-                    ShowError("Режиссер не может быть в цифрах");
-                    return;
-                }
-            }
-
-            if (GenreBox.CheckedItems.Count == 0)
-            {
-                ShowError("Выберите хоть 1 жанр");
+                MessageBox.Show("Введите режисёра фильма!");
                 return;
             }
-
-            int count = GenreBox.CheckedItems.Count; //кол-во флажков
-            string[] genre = new string[15]; //массив жанров
-
-            foreach (string s in GenreBox.CheckedItems) //перенос в массив отмеченных галочек
+            else if (GenresBox.CheckedItems.Count == 0)
             {
-                for (int i = 0; i < count; i++)
-                {
-                    genre[i] = s;
-                }
+                MessageBox.Show("Выберите хоть 1 жанр!");
+                return;
             }
-            /*
-            String FilmName = NameTxt.Text; //название
-            String FilmDur = TxtDuration.Text; //продолжительность
-            String FilmProd = TxtProduce.Text; //продюссер
-            DateTime FilmDateTime = new DateTime(); //дата
-            FilmDateTime = DatePicker.Value; //получение даты
-            String FilmCountry = TxtCountry.Text; //получение страны
+            else if(IsEmptyValue(movieCountry))
+            {
+                MessageBox.Show("Введите страну фильма!");
+                return;
+            }
+            else if(IsEmptyValue(allowedAge))
+            {
+                MessageBox.Show("Введите возрастное ограничение фильма!");
+                return;
+            }           
+               
+            var genre = new List<string>(); //лист жанров
 
-            String FilmAge = AgeComBox.Text;
-            */
-            //ХЗ КАК С РЕЖИССЕРОМ
-            DB db = new DB();
+            foreach (string value in GenresBox.CheckedItems) //перенос в массив отмеченных галочек
+            {
+                genre.Add(value);
+            }
+            
+            try
+            {
+                var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
+                connector.Connect();
 
-            //MySqlCommand commandIns = new MySqlCommand("INSERT INTO `фильмы` (`Название`, `Дата выхода`, `Длительность`, `Тип`, `Возраст_ID`, `Режиссер_ID`) VALUES ('@FilmName', @FilmDateTime, @FilmDuration, NULL, @FilmAge, @FilmProd) ", db.GetConnection());
+                // TODO: Айди разрешённого возраста находить по значению в комбобокс
+                // TODO: Айди режиссёра находить по значению в комбобокс
 
-            //DateTime date = DatePicker.Value;
+                string request = Requests.AddMovie(movieName, movieDate, movieDuration, 2, 2);
 
-            ////заглушки
-            //commandIns.Parameters.Add("@FilmName", MySqlDbType.VarChar).Value = NameTxt.Text;
-            //commandIns.Parameters.Add("@FilmDateTime", MySqlDbType.Date).Value = DatePicker.Text;
-            //commandIns.Parameters.Add("@FilmDuration", MySqlDbType.Int32).Value = TxtDuration.Text;
-            //commandIns.Parameters.Add("@FilmAge", MySqlDbType.Int32).Value = AgeComBox.SelectedIndex + 1;
-            //commandIns.Parameters.Add("@FilmProd", MySqlDbType.Int32).Value = 2;
+                var commandIns = new MySqlCommand(request, connector.Connection);
 
-            //db.OpenConnection();
+                if (commandIns.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Фильм добавлен");
+                else
+                    MessageBox.Show("Фильм не был добавлен");
 
-            //if (commandIns.ExecuteNonQuery() == 1)//выполнит Sql запрос
-            //    MessageBox.Show("Фильм добавлен");
-            //else
-            //    MessageBox.Show("Фильм не был добавлен");
-
-            //db.CloseConnection();
+                connector.Disconnect();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void LoadAgeData()
         {
-            //AgeComBox.Items.Add();
-            DB db = new DB();
+
+            //MessageBox.Show("----");
+        //    var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
 
 
-            //db.OpenConnection();
-            //MySqlCommand command = new MySqlCommand("SELECT `возраст`.`id`, `возраст`.`возраст` FROM возраст", db.GetConnection());
+        //    connector.Connect();
 
-            //MySqlDataReader reader = command.ExecuteReader();
-            /*
-            List<AgeDTO[]> data = new AgeDTO();
+        //    MySqlCommand command = new MySqlCommand("SELECT `возраст`.`id`, `возраст`.`возраст` FROM возраст", connector.Connection);
 
-            int count = 0;
+        //    MySqlDataReader reader = command.ExecuteReader();
 
-            while (reader.Read())
-            {
-                data.Add(new AgeDTO());
+        //    var data = new List<AgeDTO[]>();
 
-                data[data.Count - 1].id = Convert.ToInt32(reader[0]);
-                data[data.Count - 1].age = reader[1].ToString();
-                data[data.Count - 1].number = count;
+        //    int count = 0;
 
-                AgeComBox.Items.Add(data[data.Count - 1][1].age);
+        //    while (reader.Read())
+        //    {
+        //        data.Add(new AgeDTO()[]);
 
-                count++;
-            }
-            reader.Close();
-            db.CloseConnection();
-            */
+        //        data[data.Count - 1].id = Convert.ToInt32(reader[0]);
+        //        data[data.Count - 1].age = reader[1].ToString();
+        //        data[data.Count - 1].number = count;
+
+        //        AgeComBox.Items.Add(data[data.Count - 1][1].age);
+
+        //        count++;
+        //    }
+        //    reader.Close();
+        //    connector.Disconnect();
+
         }
+
+        private bool IsEmptyValue(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return true;
+            }
+
+            return false;
+        }
+            
+
 
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();
-        }
+        }     
     }
 }
