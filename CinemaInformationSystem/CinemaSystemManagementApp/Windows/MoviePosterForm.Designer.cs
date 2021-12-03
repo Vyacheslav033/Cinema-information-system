@@ -35,14 +35,14 @@ namespace CinemaSystemManagementApp
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.BackToMenu = new System.Windows.Forms.Button();
-            this.tableFilms = new System.Windows.Forms.DataGridView();
+            this.DataTable = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
             this.panelHead = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableFilms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.textSearch);
             this.panel1.Controls.Add(this.BackToMenu);
-            this.panel1.Controls.Add(this.tableFilms);
+            this.panel1.Controls.Add(this.DataTable);
             this.panel1.Location = new System.Drawing.Point(23, 162);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -113,24 +113,24 @@ namespace CinemaSystemManagementApp
             this.BackToMenu.UseVisualStyleBackColor = false;
             this.BackToMenu.Click += new System.EventHandler(this.BackToMenu_Click);
             // 
-            // tableFilms
+            // DataTable
             // 
-            this.tableFilms.AllowUserToAddRows = false;
-            this.tableFilms.AllowUserToDeleteRows = false;
+            this.DataTable.AllowUserToAddRows = false;
+            this.DataTable.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.tableFilms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tableFilms.BackgroundColor = System.Drawing.Color.White;
-            this.tableFilms.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableFilms.Location = new System.Drawing.Point(28, 92);
-            this.tableFilms.Margin = new System.Windows.Forms.Padding(4);
-            this.tableFilms.Name = "tableFilms";
-            this.tableFilms.ReadOnly = true;
-            this.tableFilms.RowHeadersVisible = false;
-            this.tableFilms.RowHeadersWidth = 51;
-            this.tableFilms.Size = new System.Drawing.Size(1273, 613);
-            this.tableFilms.TabIndex = 0;
+            this.DataTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataTable.BackgroundColor = System.Drawing.Color.White;
+            this.DataTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataTable.Location = new System.Drawing.Point(28, 92);
+            this.DataTable.Margin = new System.Windows.Forms.Padding(4);
+            this.DataTable.Name = "DataTable";
+            this.DataTable.ReadOnly = true;
+            this.DataTable.RowHeadersVisible = false;
+            this.DataTable.RowHeadersWidth = 51;
+            this.DataTable.Size = new System.Drawing.Size(1273, 613);
+            this.DataTable.TabIndex = 0;
             // 
             // panel2
             // 
@@ -186,12 +186,12 @@ namespace CinemaSystemManagementApp
             this.Name = "MoviePosterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PrintFilms";
-            this.Load += new System.EventHandler(this.PrintFilms_Load);
+            this.Load += new System.EventHandler(this.OutputData_Load);
             this.MainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableFilms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -209,6 +209,6 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Button BackToMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textSearch;
-        private System.Windows.Forms.DataGridView tableFilms;
+        private System.Windows.Forms.DataGridView DataTable;
     }
 }

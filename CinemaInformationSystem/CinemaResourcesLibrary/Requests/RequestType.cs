@@ -8,6 +8,7 @@ namespace CinemaResourcesLibrary
     public enum RequestType
     {
         Movies,
-        Sessions
+        Sessions,
+        Tickets
     }
 }

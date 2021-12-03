@@ -7,31 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
 {
     public partial class EditDatabaseForm : Form
     {
-        public EditDatabaseForm()
-        {
+        private RequestType requestType;
+
+        public EditDatabaseForm(RequestType requestType)
+        {           
             InitializeComponent();
+
+            string title = "";
+
+            if (requestType == RequestType.Movies)
+            {
+                title = "Удалить фильм";
+            }
+            else if (requestType == RequestType.Sessions)
+            {
+                title = "Сеансы";
+            }
+            else if (requestType == RequestType.Tickets)
+            {
+                title = "Билеты";
+            }
+
+            this.requestType = requestType;
         }
 
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var addMovieForm = new AddMovieForm();
-            addMovieForm.Show();
-        }
+        
 
-        private void textSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -109,6 +109,12 @@
     <Compile Include="Windows\AdminMenuForm.Designer.cs">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\DeleteFromDatabaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\DeleteFromDatabaseForm.Designer.cs">
+      <DependentUpon>DeleteFromDatabaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditDatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\AdminMenuForm.resx">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\DeleteFromDatabaseForm.resx">
+      <DependentUpon>DeleteFromDatabaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\EditDatabaseForm.resx">
       <DependentUpon>EditDatabaseForm.cs</DependentUpon>

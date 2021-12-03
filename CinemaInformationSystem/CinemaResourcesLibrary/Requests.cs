@@ -81,6 +81,51 @@ namespace CinemaResourcesLibrary
             return query;
         }
 
+        /// <summary>
+        /// Удалить фильм по айди.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static string DeleteMovieById(int id)
+        {
+            string query =
+                       "use filmoteka; " +
+                       "DELETE FROM `фильмы` " +
+                       $"where `фильмы`.`id` = {id}";
+
+            return query; 
+        }
+
+        /// <summary>
+        /// Удалить сеанс по айди.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static string DeleteSessionById(int id)
+        {
+            string query =
+                       "use filmoteka; " +
+                       "DELETE FROM `сеансы` " +
+                       $"where `сеансы`.`id` = {id}";
+
+            return query;
+        }
+
+        /// <summary>
+        /// Удалить билет по айди.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static string DeleteTicketById(int id)
+        {
+            string query =
+                       "use filmoteka; " +
+                       "DELETE FROM `билет` " +
+                       $"where `билет`.`id` = {id}";
+
+            return query;
+        }
+
 
     }
 }

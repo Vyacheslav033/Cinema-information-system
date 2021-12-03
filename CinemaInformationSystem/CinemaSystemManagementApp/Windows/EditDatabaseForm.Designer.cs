@@ -29,7 +29,7 @@ namespace CinemaSystemManagementApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelHead = new System.Windows.Forms.Label();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.tableFilms = new System.Windows.Forms.DataGridView();
@@ -47,6 +47,7 @@ namespace CinemaSystemManagementApp
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tableFilms)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,16 +83,15 @@ namespace CinemaSystemManagementApp
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(112, 38);
             this.BtnAdd.TabIndex = 1;
-            this.BtnAdd.Text = "Add";
+            this.BtnAdd.Text = "Добавить";
             this.BtnAdd.UseVisualStyleBackColor = false;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // tableFilms
             // 
             this.tableFilms.AllowUserToAddRows = false;
             this.tableFilms.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableFilms.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tableFilms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableFilms.BackgroundColor = System.Drawing.Color.White;
             this.tableFilms.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -175,6 +175,7 @@ namespace CinemaSystemManagementApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.BtnRef);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.textSearch);
@@ -200,7 +201,7 @@ namespace CinemaSystemManagementApp
             this.BtnRef.Name = "BtnRef";
             this.BtnRef.Size = new System.Drawing.Size(121, 38);
             this.BtnRef.TabIndex = 4;
-            this.BtnRef.Text = "Refresh";
+            this.BtnRef.Text = "Обновить";
             this.BtnRef.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
@@ -212,7 +213,6 @@ namespace CinemaSystemManagementApp
             this.pictureBox1.Size = new System.Drawing.Size(37, 34);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // textSearch
             // 
@@ -222,7 +222,6 @@ namespace CinemaSystemManagementApp
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(293, 38);
             this.textSearch.TabIndex = 2;
-            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // MainPanel
             // 
@@ -260,6 +259,23 @@ namespace CinemaSystemManagementApp
             this.Exit.Size = new System.Drawing.Size(30, 29);
             this.Exit.TabIndex = 1;
             this.Exit.Text = "X";
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(331, 43);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 38);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Удалить";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // EditDatabaseForm
             // 
@@ -302,5 +318,6 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Exit;
+        private System.Windows.Forms.Button button1;
     }
 }

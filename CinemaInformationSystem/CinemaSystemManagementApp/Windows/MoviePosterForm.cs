@@ -80,7 +80,7 @@ namespace CinemaSystemManagementApp
             */
         }
 
-        private void PrintFilms_Load(object sender, EventArgs e)
+        private void OutputData_Load(object sender, EventArgs e)
         {
 
             var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
@@ -88,21 +88,10 @@ namespace CinemaSystemManagementApp
 
             var command = new MySQLСommand(connector);
 
-            tableFilms.DataSource = command.RunRequest(request);
+            DataTable.DataSource = command.RunRequest(request);
 
 
-            //string connection =
-            //    @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\C#\DataForKino\Database1.mdf;Integrated Security=True;Connect Timeout=30";
-            //var sqlConnection = new SqlConnection(connection);
-            //await sqlConnection.OpenAsync();
-
-            //var adapter = new SqlDataAdapter(this.request, sqlConnection);
-            //var table = new DataTable();
-
-            //adapter.Fill(table);
-            //tableFilms.DataSource = table;
-
-            //sqlConnection.Close();
+            
         }
 
       
