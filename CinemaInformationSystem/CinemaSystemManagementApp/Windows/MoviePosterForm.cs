@@ -83,12 +83,12 @@ namespace CinemaSystemManagementApp
         private void OutputData_Load(object sender, EventArgs e)
         {
 
-            var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
+            var connector = new MySQLConnector("localhost", "filmoteka", "root", "password");
 
 
             var command = new MySQLСommand(connector);
 
-            DataTable.DataSource = command.RunRequest(request);
+            DataTable.DataSource = command.GetDataTable(request);
 
 
             

@@ -68,7 +68,7 @@ namespace CinemaSystemManagementApp
         private void BtnPrintAll_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var films = new MoviePosterForm(Requests.GetFilms(), "Фильмы" );
+            var films = new MoviePosterForm(Requests.GetMovies(), "Фильмы" );
             films.Show();
         }
 

@@ -46,3 +46,5 @@ D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementAp
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\System.Numerics.Vectors.xml
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.AdminMenuForm.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.AddSessionForm.resources
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.DeleteFromDatabaseForm.resources
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.CopyComplete

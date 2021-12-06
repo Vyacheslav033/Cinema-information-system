@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CinemaResourcesLibrary;
 
@@ -23,7 +16,7 @@ namespace CinemaSystemManagementApp
 
             if (requestType == RequestType.Movies)
             {
-                title = "Удалить фильм";
+                title = "Фильмы";
             }
             else if (requestType == RequestType.Sessions)
             {
@@ -34,10 +27,43 @@ namespace CinemaSystemManagementApp
                 title = "Билеты";
             }
 
+            HeadPanel.Text = title;
             this.requestType = requestType;
+
+            FillTable();
         }
 
-        
+        private void FillTable()
+        {
+            string request = "";
 
+            if (requestType == RequestType.Movies)
+            {
+                request = Requests.GetMovies();
+            }
+            else if (requestType == RequestType.Sessions)
+            {
+                request = Requests.GetSessions();
+            }
+            else if (requestType == RequestType.Tickets)
+            {
+                request = Requests.GetTickets();
+            }
+
+            var myDatabase = new MyDatabase();
+
+            DataTable.DataSource = myDatabase.GetDataTable(request);
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            var deleteForm = new DeleteFromDatabaseForm(requestType);
+            deleteForm.Show();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

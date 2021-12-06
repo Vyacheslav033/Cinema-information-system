@@ -148,6 +148,7 @@ namespace CinemaSystemManagementApp
             this.Exit.Size = new System.Drawing.Size(30, 29);
             this.Exit.TabIndex = 1;
             this.Exit.Text = "X";
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // HeaderPanel
             // 
@@ -160,7 +161,7 @@ namespace CinemaSystemManagementApp
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(360, 145);
             this.HeaderPanel.TabIndex = 0;
-            this.HeaderPanel.Text = "Удалить Сеанс";
+            this.HeaderPanel.Text = "Удалить";
             this.HeaderPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelHead

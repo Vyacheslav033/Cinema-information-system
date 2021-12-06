@@ -12,7 +12,7 @@ namespace CinemaResourcesLibrary
         /// Получить все фильмы.
         /// </summary>
         /// <returns></returns>
-        public static string GetFilms()
+        public static string GetMovies()
         {
             string query =
                         "SELECT `фильмы`.`id`, `фильмы`.`название`, `фильмы`.`дата выхода`, " +
@@ -38,6 +38,24 @@ namespace CinemaResourcesLibrary
                         "inner join Залы on Сеансы.Залы_ID = Залы.ID " +
                         "GROUP BY Сеансы.ID " +
                         "order by Сеансы.ID;";
+            return query;
+        }
+
+        /// <summary>
+        /// Получить все билеты.
+        /// </summary>
+        /// <returns></returns>
+        public static string GetTickets()
+        {
+            string query =
+                        "SELECT билет.`Дата покупки`, сеансы.`Дата-время сеанса`,сеансы.ID as 'ID сеанса', билет.Ряд, билет.Место, " +
+                        "concat(сотрудники.Фамилия , ' ', сотрудники.Имя, ' ', сотрудники.Отчество) as 'ФИО сотрудника', `тип оплаты`.Оплата " +
+                        "FROM билет " +
+                        "inner join сотрудники on билет.Сотрудники_ID = сотрудники.ID " +
+                        "inner join `тип оплаты` on билет.`Тип оплаты_ID` = `тип оплаты`.ID " +
+                        "inner join сеансы on билет.Сеансы_ID = сеансы.ID " +
+                        "order by билет.ID ";
+
             return query;
         }
 

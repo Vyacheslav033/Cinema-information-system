@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using CinemaResourcesLibrary;
-using MySql.Data.MySqlClient;
 
 namespace CinemaSystemManagementApp
 {
@@ -71,17 +70,12 @@ namespace CinemaSystemManagementApp
 
             try
             {
-                var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
-                connector.Connect();
+                var myDatabase = new MyDatabase();
 
-                var commandIns = new MySqlCommand(request, connector.Connection);
-
-                if (commandIns.ExecuteNonQuery() == 1)
-                    MessageBox.Show("Запись удалена!");
+                if ( myDatabase.MyСommand.RunRequest(request) )
+                    MessageBox.Show("Запись добавлена.");
                 else
-                    MessageBox.Show("Запись не была удалена!");
-
-                connector.Disconnect();
+                    MessageBox.Show("Запись не была добавлена.");
             }
             catch (Exception ex)
             {
@@ -89,6 +83,9 @@ namespace CinemaSystemManagementApp
             }
         }
 
-       
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

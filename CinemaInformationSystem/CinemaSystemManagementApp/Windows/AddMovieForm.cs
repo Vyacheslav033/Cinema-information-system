@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
@@ -70,22 +69,17 @@ namespace CinemaSystemManagementApp
             
             try
             {
-                var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
-                connector.Connect();
-
                 // TODO: Айди разрешённого возраста находить по значению в комбобокс
                 // TODO: Айди режиссёра находить по значению в комбобокс
 
                 string request = Requests.AddMovie(movieName, movieDate, movieDuration, 2, 2);
 
-                var commandIns = new MySqlCommand(request, connector.Connection);
+                var myDatabase = new MyDatabase();
 
-                if (commandIns.ExecuteNonQuery() == 1)
+                if (myDatabase.MyСommand.RunRequest(request))
                     MessageBox.Show("Фильм добавлен");
                 else
                     MessageBox.Show("Фильм не был добавлен");
-
-                connector.Disconnect();
             }
             catch (Exception ex)
             {

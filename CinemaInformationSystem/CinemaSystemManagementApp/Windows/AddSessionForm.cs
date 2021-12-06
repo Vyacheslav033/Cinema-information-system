@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
@@ -50,22 +48,18 @@ namespace CinemaSystemManagementApp
             }
       
             try
-            {
-                var connector = new MySqlConnector("localhost", "filmoteka", "root", "password");
-                connector.Connect();
-
+            {        
                 // TODO: Айди зала находить по названию зала
                 int hallId = 1;
 
                 string request = Requests.AddSession(movieData, movieTime, moviePrice, hallId, movieId);
-                var commandIns = new MySqlCommand(request, connector.Connection);
 
-                if (commandIns.ExecuteNonQuery() == 1)
+                var myDatabase = new MyDatabase();
+                
+                if ( myDatabase.MyСommand.RunRequest(request) )
                     MessageBox.Show("Сеанс добавлен");
                 else
                     MessageBox.Show("Сеанс не был добавлен");
-
-                connector.Disconnect();
             }
             catch (Exception ex)
             {

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
-using MySql.Data.MySqlClient;
 
 namespace CinemaResourcesLibrary
 {
     /// <summary>
     /// Класс отвечающий за подключение к базе данных.
     /// </summary>
-    public class MySqlConnector
+    public class MySQLConnector
     {
         private string connectingLine;
         private MySqlConnection myConnection;
@@ -19,7 +19,7 @@ namespace CinemaResourcesLibrary
         /// <param name="database"> Имя база данных. </param>
         /// <param name="uid"> Идентификатор пользователя. </param>
         /// <param name="password"> Пароль. </param>
-        public MySqlConnector(string server, string database, string uid, string password)
+        public MySQLConnector(string server, string database, string uid, string password)
         {
             if (String.IsNullOrEmpty(server))
             {
