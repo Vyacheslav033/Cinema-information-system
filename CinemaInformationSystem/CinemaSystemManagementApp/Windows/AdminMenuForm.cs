@@ -29,19 +29,19 @@ namespace CinemaSystemManagementApp
 
         private void ShowMoviesPanelButton_Click(object sender, EventArgs e)
         {
-            var adminMoviesPanel = new EditDatabaseForm(RequestType.Movies);
+            var adminMoviesPanel = new EditDatabaseForm(RequestName.Movies);
             adminMoviesPanel.Show();
         }
 
         private void ShowSessionsPanelButton_Click(object sender, EventArgs e)
         {
-            var adminSessionsPanel = new EditDatabaseForm(RequestType.Sessions);
+            var adminSessionsPanel = new EditDatabaseForm(RequestName.Sessions);
             adminSessionsPanel.Show();
         }
 
         private void ShowTicketsPanelButton_Click(object sender, EventArgs e)
         {
-            var adminTicketsPanel = new EditDatabaseForm(RequestType.Tickets);
+            var adminTicketsPanel = new EditDatabaseForm(RequestName.Tickets);
             adminTicketsPanel.Show();
         }
 

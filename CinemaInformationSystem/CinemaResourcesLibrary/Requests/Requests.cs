@@ -19,8 +19,8 @@ namespace CinemaResourcesLibrary
                         "`фильмы`.`длительность`,`фильмы`.`тип`,`возраст`.`возраст`,`режиссер`.`фамилия` " +
                         "FROM фильмы " +
                         "INNER JOIN `возраст` ON `фильмы`.`возраст_id` = `возраст`.`id` " +
-                        "INNER JOIN `режиссер` ON `фильмы`.`режиссер_id`=`режиссер`.`id`";
-
+                        "INNER JOIN `режиссер` ON `фильмы`.`режиссер_id`=`режиссер`.`id` " +
+                        "order by фильмы.id;";
             return query;
         }
 
@@ -48,7 +48,7 @@ namespace CinemaResourcesLibrary
         public static string GetTickets()
         {
             string query =
-                        "SELECT билет.`Дата покупки`, сеансы.`Дата-время сеанса`,сеансы.ID as 'ID сеанса', билет.Ряд, билет.Место, " +
+                        "SELECT билет.ID, билет.`Дата покупки`, сеансы.`Дата-время сеанса`,сеансы.ID as 'ID сеанса', билет.Ряд, билет.Место, " +
                         "concat(сотрудники.Фамилия , ' ', сотрудники.Имя, ' ', сотрудники.Отчество) as 'ФИО сотрудника', `тип оплаты`.Оплата " +
                         "FROM билет " +
                         "inner join сотрудники on билет.Сотрудники_ID = сотрудники.ID " +
@@ -62,19 +62,17 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Добавить фильм.
         /// </summary>
-        /// <param name="movieName"></param>
-        /// <param name="movieDate"></param>
-        /// <param name="duration"></param>
-        /// <param name="allowedAge"></param>
-        /// <param name="prodId"></param>
+        /// <param name="movie"></param>
         /// <returns></returns>
-        public static string AddMovie(string movieName, DateTime movieDate, int duration, int allowedAge, int prodId  )
+        public static string AddMovie(Movie movie)
         {
             string query =
-                       "INSERT INTO `фильмы` " +
-                       "(`Название`, `Дата выхода`, `Длительность`, `Тип`, `Возраст_ID`, `Режиссер_ID`) " +
-                       "VALUES " +
-                       $"(\"{movieName}\", '{movieDate.ToString("yyyy-MM-dd")}', {duration}, NULL, {allowedAge}, {prodId})";
+                        "set  @allowedAgeId = 0; " +
+                        $"SELECT ID FROM возраст WHERE Возраст = \"{movie.AllowedAge}\" into @allowedAgeId;" +
+                        "INSERT INTO `фильмы` " +
+                        "(`Название`, `Дата выхода`, `Длительность`, `Тип`, `Возраст_ID`, `Режиссер_ID`) " +
+                        "VALUES " +
+                        $"(\"{movie.Name}\", '{movie.ReleaseDate.ToString("yyyy-MM-dd")}', {movie.Duration}, NULL, @allowedAgeId, {movie.ProducerId})";
 
             return query;
         }
@@ -82,19 +80,36 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Добавить сеанс.
         /// </summary>
-        /// <param name="movieData"></param>
-        /// <param name="movieTime"></param>
-        /// <param name="moviePrice"></param>
-        /// <param name="hallId"></param>
-        /// <param name="movieId"></param>
+        /// <param name="session"></param>
         /// <returns></returns>
-        public static string AddSession(DateTime movieData, DateTime movieTime, int moviePrice, int hallId, int movieId)
+        public static string AddSession(Session session)
         {
-            string query =
+            string query =          
+                       "set @hallId = 0;" +
+                       $"SELECT `ID` FROM `залы` WHERE `Название зала` = \"{session.HallName}\" into @hallId;" + 
                        "INSERT INTO `сеансы` " +
                        "(`Дата-время сеанса`, `Цена`, `Залы_ID`, `Фильмы_ID`) " +
                        "VALUES " +
-                       $"('{movieData.ToString("yyyy-MM-dd")} {movieTime.ToLongTimeString()}', {moviePrice}, {hallId}, {movieId})";
+                       $"(\"{session.MovieData.ToString("yyyy-MM-dd")} {session.MovieTime.ToLongTimeString()}\", {session.MoviePrice}, @hallId, {session.MovieId})";
+
+            return query;
+        }
+
+        /// <summary>
+        /// Добавить билет.
+        /// </summary>
+        /// <param name="ticket"></param>
+        /// <returns></returns>
+        public static string AddTicket(Ticket ticket)
+        {
+            string query =
+                       "set @paymentTypeId = 0;" +
+                       $"select ID from `тип оплаты` where Оплата = \"{ticket.PaymentType}\" into @paymentTypeId;" +
+                       "INSERT INTO `билет` " +
+                       "(`Дата покупки`, `Сотрудники_ID`, `Тип оплаты_ID`, `Сеансы_ID`, `Ряд`, `Место`) " +
+                       "VALUES " +
+                       $"(\"{ticket.PaymentData.ToString("yyyy-MM-dd")} {ticket.PaymentTime.ToLongTimeString()}\", " +
+                       $"{ticket.EmployeeId}, @paymentTypeId, {ticket.SessionId}, {ticket.RowNumber}, {ticket.PlaceNumber} ) ";
 
             return query;
         }

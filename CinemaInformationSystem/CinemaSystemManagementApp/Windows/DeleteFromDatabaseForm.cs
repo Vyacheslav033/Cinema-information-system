@@ -6,26 +6,26 @@ namespace CinemaSystemManagementApp
 {
     public partial class DeleteFromDatabaseForm : Form
     {
-        private RequestType requestType;
+        private RequestName requestType;
 
-        public DeleteFromDatabaseForm(RequestType requestType)
+        public DeleteFromDatabaseForm(RequestName requestType)
         {
             InitializeComponent();
 
             string headerPanelValue = "";
             string getNumberPanelValue = "";
 
-            if (requestType == RequestType.Movies)
+            if (requestType == RequestName.Movies)
             {
                 headerPanelValue = "Удалить фильм";
                 getNumberPanelValue = "Номер фильма";               
             }
-            else if (requestType == RequestType.Sessions)
+            else if (requestType == RequestName.Sessions)
             {
                 headerPanelValue = "Удалить сеанс";
                 getNumberPanelValue = "Номер сеанса";
             }
-            else if (requestType == RequestType.Tickets)
+            else if (requestType == RequestName.Tickets)
             {
                 headerPanelValue = "Удалить билет";
                 getNumberPanelValue = "Номер билета";
@@ -55,15 +55,15 @@ namespace CinemaSystemManagementApp
 
             string request = "";
 
-            if (requestType == RequestType.Movies)
+            if (requestType == RequestName.Movies)
             {               
                 request = Requests.DeleteMovieById(number);
             }
-            else if (requestType == RequestType.Sessions)
+            else if (requestType == RequestName.Sessions)
             {
                 request = Requests.DeleteSessionById(number);
             }
-            else if (requestType == RequestType.Tickets)
+            else if (requestType == RequestName.Tickets)
             {
                 request = Requests.DeleteTicketById(number);
             }
@@ -73,9 +73,9 @@ namespace CinemaSystemManagementApp
                 var myDatabase = new MyDatabase();
 
                 if ( myDatabase.MyСommand.RunRequest(request) )
-                    MessageBox.Show("Запись добавлена.");
+                    MessageBox.Show("Запись удалена.");
                 else
-                    MessageBox.Show("Запись не была добавлена.");
+                    MessageBox.Show("Запись не была удалена.");
             }
             catch (Exception ex)
             {

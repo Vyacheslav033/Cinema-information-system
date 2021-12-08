@@ -71,7 +71,7 @@ namespace CinemaResourcesLibrary
 
             var commandIns = new MySqlCommand(request, connector.Connection);
 
-            bool isPerform = (commandIns.ExecuteNonQuery() == 1) ? true : false;
+            bool isPerform = (commandIns.ExecuteNonQuery() > 0) ? true : false;
 
             connector.Disconnect();
 

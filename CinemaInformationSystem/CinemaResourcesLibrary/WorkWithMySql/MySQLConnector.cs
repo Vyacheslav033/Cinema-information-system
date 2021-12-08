@@ -41,7 +41,7 @@ namespace CinemaResourcesLibrary
                 throw new ArgumentNullException("Не был передан пароль!");
             }
 
-            this.connectingLine = $"Server={server};Database={database};Uid={uid};pwd={password};";
+            this.connectingLine = $"Server={server};Database={database};Uid={uid};pwd={password};Allow User Variables=True";
             myConnection = new MySqlConnection(connectingLine);
         }
 

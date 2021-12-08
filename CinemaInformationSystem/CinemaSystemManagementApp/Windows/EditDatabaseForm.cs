@@ -6,23 +6,23 @@ namespace CinemaSystemManagementApp
 {
     public partial class EditDatabaseForm : Form
     {
-        private RequestType requestType;
+        private RequestName requestType;
 
-        public EditDatabaseForm(RequestType requestType)
+        public EditDatabaseForm(RequestName requestType)
         {           
             InitializeComponent();
 
             string title = "";
 
-            if (requestType == RequestType.Movies)
+            if (requestType == RequestName.Movies)
             {
                 title = "Фильмы";
             }
-            else if (requestType == RequestType.Sessions)
+            else if (requestType == RequestName.Sessions)
             {
                 title = "Сеансы";
             }
-            else if (requestType == RequestType.Tickets)
+            else if (requestType == RequestName.Tickets)
             {
                 title = "Билеты";
             }
@@ -37,15 +37,15 @@ namespace CinemaSystemManagementApp
         {
             string request = "";
 
-            if (requestType == RequestType.Movies)
+            if (requestType == RequestName.Movies)
             {
                 request = Requests.GetMovies();
             }
-            else if (requestType == RequestType.Sessions)
+            else if (requestType == RequestName.Sessions)
             {
                 request = Requests.GetSessions();
             }
-            else if (requestType == RequestType.Tickets)
+            else if (requestType == RequestName.Tickets)
             {
                 request = Requests.GetTickets();
             }
@@ -58,12 +58,17 @@ namespace CinemaSystemManagementApp
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             var deleteForm = new DeleteFromDatabaseForm(requestType);
-            deleteForm.Show();
+            deleteForm.Show();            
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UpdateDataButton_Click(object sender, EventArgs e)
+        {
+            FillTable();
         }
     }
 }

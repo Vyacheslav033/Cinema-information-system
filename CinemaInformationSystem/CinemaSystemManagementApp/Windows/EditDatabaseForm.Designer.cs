@@ -35,12 +35,13 @@ namespace CinemaSystemManagementApp
             this.DataTable = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
-            this.BtnRef = new System.Windows.Forms.Button();
+            this.EditEntryButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textSearch = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
+            this.UpdateDataButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,8 +105,9 @@ namespace CinemaSystemManagementApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.UpdateDataButton);
             this.panel1.Controls.Add(this.DeleteButton);
-            this.panel1.Controls.Add(this.BtnRef);
+            this.panel1.Controls.Add(this.EditEntryButton);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.textSearch);
             this.panel1.Controls.Add(this.BtnAdd);
@@ -125,7 +127,7 @@ namespace CinemaSystemManagementApp
             this.DeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteButton.Location = new System.Drawing.Point(334, 46);
+            this.DeleteButton.Location = new System.Drawing.Point(343, 46);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(121, 38);
@@ -134,22 +136,22 @@ namespace CinemaSystemManagementApp
             this.DeleteButton.UseVisualStyleBackColor = false;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // BtnRef
+            // EditEntryButton
             // 
-            this.BtnRef.AutoSize = true;
-            this.BtnRef.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnRef.FlatAppearance.BorderSize = 0;
-            this.BtnRef.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.BtnRef.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
-            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnRef.Location = new System.Drawing.Point(173, 46);
-            this.BtnRef.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(121, 38);
-            this.BtnRef.TabIndex = 4;
-            this.BtnRef.Text = "Обновить";
-            this.BtnRef.UseVisualStyleBackColor = false;
+            this.EditEntryButton.AutoSize = true;
+            this.EditEntryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.EditEntryButton.FlatAppearance.BorderSize = 0;
+            this.EditEntryButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.EditEntryButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
+            this.EditEntryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditEntryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditEntryButton.Location = new System.Drawing.Point(164, 46);
+            this.EditEntryButton.Margin = new System.Windows.Forms.Padding(4);
+            this.EditEntryButton.Name = "EditEntryButton";
+            this.EditEntryButton.Size = new System.Drawing.Size(159, 38);
+            this.EditEntryButton.TabIndex = 4;
+            this.EditEntryButton.Text = "Редактировать";
+            this.EditEntryButton.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -208,6 +210,24 @@ namespace CinemaSystemManagementApp
             this.Exit.Text = "X";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // UpdateDataButton
+            // 
+            this.UpdateDataButton.AutoSize = true;
+            this.UpdateDataButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.UpdateDataButton.FlatAppearance.BorderSize = 0;
+            this.UpdateDataButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.UpdateDataButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
+            this.UpdateDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpdateDataButton.Location = new System.Drawing.Point(814, 43);
+            this.UpdateDataButton.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdateDataButton.Name = "UpdateDataButton";
+            this.UpdateDataButton.Size = new System.Drawing.Size(121, 38);
+            this.UpdateDataButton.TabIndex = 6;
+            this.UpdateDataButton.Text = "Обновить";
+            this.UpdateDataButton.UseVisualStyleBackColor = false;
+            this.UpdateDataButton.Click += new System.EventHandler(this.UpdateDataButton_Click);
+            // 
             // EditDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -236,12 +256,13 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.DataGridView DataTable;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BtnRef;
+        private System.Windows.Forms.Button EditEntryButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Exit;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button UpdateDataButton;
     }
 }

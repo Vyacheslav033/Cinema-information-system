@@ -1,9 +1,5 @@
 ﻿using CinemaResourcesLibrary;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -52,48 +48,18 @@ namespace CinemaSystemManagementApp
 
         private void LoadData()
         {
-            /*
-            DB db = new DB();
-            db.OpenConnection();
-            MySqlCommand command = new MySqlCommand("SELECT `фильмы`.`id`, `фильмы`.`название`, `фильмы`.`дата выхода`, `фильмы`.`длительность`,`фильмы`.`тип`,`возраст`.`возраст`,`режиссер`.`фамилия`  FROM фильмы INNER JOIN `возраст` ON `фильмы`.`возраст_id` = `возраст`.`id` INNER JOIN `режиссер` ON `фильмы`.`режиссер_id`=`режиссер`.`id`", db.GetConnection());
-
-            MySqlDataReader reader = command.ExecuteReader();
-            List<String[]> data = new List<string[]>();
-
-            while (reader.Read())
+            try
             {
-                data.Add(new string[7]);
+                var connector = new MySQLConnector("localhost", "filmoteka", "root", "password");
 
-                data[data.Count - 1][0] = reader[0].ToString();
-                data[data.Count - 1][1] = reader[1].ToString();
-                data[data.Count - 1][2] = reader[2].ToString();
-                data[data.Count - 1][3] = reader[3].ToString();
-                data[data.Count - 1][4] = reader[4].ToString();
-                data[data.Count - 1][5] = reader[5].ToString();
-                data[data.Count - 1][6] = reader[6].ToString();
+                var command = new MySQLСommand(connector);
+
+                DataTable.DataSource = command.GetDataTable(request);
             }
-            reader.Close();
-            db.CloseConnection();
-
-            foreach (string[] s in data)
-                tableFilms.Rows.Add(s);
-            */
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
-        private void OutputData_Load(object sender, EventArgs e)
-        {
-
-            var connector = new MySQLConnector("localhost", "filmoteka", "root", "password");
-
-
-            var command = new MySQLСommand(connector);
-
-            DataTable.DataSource = command.GetDataTable(request);
-
-
-            
-        }
-
-      
     }
 }

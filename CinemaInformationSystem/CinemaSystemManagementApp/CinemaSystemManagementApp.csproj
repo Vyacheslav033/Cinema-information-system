@@ -103,6 +103,12 @@
     <Compile Include="Windows\AddSessionForm.Designer.cs">
       <DependentUpon>AddSessionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddTicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AddTicketForm.Designer.cs">
+      <DependentUpon>AddTicketForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AdminMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\AddSessionForm.resx">
       <DependentUpon>AddSessionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\AddTicketForm.resx">
+      <DependentUpon>AddTicketForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\AdminMenuForm.resx">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>

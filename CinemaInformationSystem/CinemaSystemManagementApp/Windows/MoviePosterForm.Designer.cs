@@ -186,7 +186,6 @@ namespace CinemaSystemManagementApp
             this.Name = "MoviePosterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PrintFilms";
-            this.Load += new System.EventHandler(this.OutputData_Load);
             this.MainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

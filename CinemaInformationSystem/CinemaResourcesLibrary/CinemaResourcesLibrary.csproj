@@ -86,11 +86,15 @@
   <ItemGroup>
     <Compile Include="AgeDTO.cs" />
     <Compile Include="MyDatabase.cs" />
+    <Compile Include="MyDatabaseObjects\Movie.cs" />
+    <Compile Include="MyDatabaseObjects\Ticket.cs" />
+    <Compile Include="Requests\RequestType.cs" />
+    <Compile Include="MyDatabaseObjects\Session.cs" />
     <Compile Include="WorkWithMySql\MySQLConnector.cs" />
     <Compile Include="Requests\Requests.cs" />
     <Compile Include="WorkWithMySql\MySQLСommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests\RequestType.cs" />
+    <Compile Include="Requests\RequestName.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
