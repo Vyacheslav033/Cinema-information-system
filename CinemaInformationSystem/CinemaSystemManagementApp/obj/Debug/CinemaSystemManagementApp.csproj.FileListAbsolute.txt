@@ -2,8 +2,6 @@ D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementAp
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.Properties.Resources.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.GenerateResource.cache
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.CoreCompileInputs.cache
-D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\Database\Database1.mdf
-D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\Database\Database1_log.ldf
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\CinemaSystemManagementApp.exe.config
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\CinemaSystemManagementApp.exe
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\bin\Debug\CinemaSystemManagementApp.pdb
@@ -48,3 +46,4 @@ D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementAp
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.AddSessionForm.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.DeleteFromDatabaseForm.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.AddTicketForm.resources
+D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.CopyComplete

@@ -34,10 +34,10 @@ namespace CinemaSystemManagementApp
             this.label1 = new System.Windows.Forms.Label();
             this.HallNameBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.MovieTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.SessionTimePicker = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlError = new System.Windows.Forms.Label();
-            this.MovieDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.SessionDatePicker = new System.Windows.Forms.DateTimePicker();
             this.AddOrUpdateButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,9 +72,9 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.HallNameBox);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.MovieTimePicker);
+            this.panel1.Controls.Add(this.SessionTimePicker);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.MovieDatePicker);
+            this.panel1.Controls.Add(this.SessionDatePicker);
             this.panel1.Controls.Add(this.AddOrUpdateButton);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -121,14 +121,14 @@ namespace CinemaSystemManagementApp
             this.label2.TabIndex = 21;
             this.label2.Text = "Время сеанса";
             // 
-            // MovieTimePicker
+            // SessionTimePicker
             // 
-            this.MovieTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MovieTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.MovieTimePicker.Location = new System.Drawing.Point(42, 267);
-            this.MovieTimePicker.Name = "MovieTimePicker";
-            this.MovieTimePicker.Size = new System.Drawing.Size(200, 27);
-            this.MovieTimePicker.TabIndex = 20;
+            this.SessionTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SessionTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.SessionTimePicker.Location = new System.Drawing.Point(42, 267);
+            this.SessionTimePicker.Name = "SessionTimePicker";
+            this.SessionTimePicker.Size = new System.Drawing.Size(200, 27);
+            this.SessionTimePicker.TabIndex = 20;
             // 
             // panel3
             // 
@@ -155,19 +155,19 @@ namespace CinemaSystemManagementApp
             this.pnlError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.pnlError.Visible = false;
             // 
-            // MovieDatePicker
+            // SessionDatePicker
             // 
-            this.MovieDatePicker.CustomFormat = "yyyy-MM-dd";
-            this.MovieDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MovieDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.MovieDatePicker.Location = new System.Drawing.Point(42, 204);
-            this.MovieDatePicker.Margin = new System.Windows.Forms.Padding(4);
-            this.MovieDatePicker.MaxDate = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
-            this.MovieDatePicker.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
-            this.MovieDatePicker.Name = "MovieDatePicker";
-            this.MovieDatePicker.Size = new System.Drawing.Size(265, 27);
-            this.MovieDatePicker.TabIndex = 16;
-            this.MovieDatePicker.Value = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
+            this.SessionDatePicker.CustomFormat = "yyyy-MM-dd";
+            this.SessionDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SessionDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.SessionDatePicker.Location = new System.Drawing.Point(42, 204);
+            this.SessionDatePicker.Margin = new System.Windows.Forms.Padding(4);
+            this.SessionDatePicker.MaxDate = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
+            this.SessionDatePicker.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
+            this.SessionDatePicker.Name = "SessionDatePicker";
+            this.SessionDatePicker.Size = new System.Drawing.Size(265, 27);
+            this.SessionDatePicker.TabIndex = 16;
+            this.SessionDatePicker.Value = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
             // 
             // AddOrUpdateButton
             // 
@@ -324,10 +324,10 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox MoviePriceBox;
         private System.Windows.Forms.Button AddOrUpdateButton;
-        private System.Windows.Forms.DateTimePicker MovieDatePicker;
+        private System.Windows.Forms.DateTimePicker SessionDatePicker;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label pnlError;
-        private System.Windows.Forms.DateTimePicker MovieTimePicker;
+        private System.Windows.Forms.DateTimePicker SessionTimePicker;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox HallNameBox;

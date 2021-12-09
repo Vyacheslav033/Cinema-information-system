@@ -81,5 +81,10 @@ namespace CinemaSystemManagementApp
             var sessions = new MoviePosterForm(Requests.GetSessions() , "Сеансы");
             sessions.Show();
         }
+
+        private void BuyPlace_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

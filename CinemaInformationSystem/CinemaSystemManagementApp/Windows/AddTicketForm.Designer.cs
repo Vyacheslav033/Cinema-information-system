@@ -220,7 +220,7 @@ namespace CinemaSystemManagementApp
             this.AddOrUpdateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
             this.AddOrUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddOrUpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddOrUpdateButton.Location = new System.Drawing.Point(215, 512);
+            this.AddOrUpdateButton.Location = new System.Drawing.Point(202, 510);
             this.AddOrUpdateButton.Margin = new System.Windows.Forms.Padding(4);
             this.AddOrUpdateButton.Name = "AddOrUpdateButton";
             this.AddOrUpdateButton.Size = new System.Drawing.Size(112, 42);

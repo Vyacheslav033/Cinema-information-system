@@ -44,7 +44,7 @@ namespace CinemaSystemManagementApp
             this.GenresBox = new System.Windows.Forms.CheckedListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.MovieProduceBox = new System.Windows.Forms.TextBox();
+            this.ProducerNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.MovieDurationBox = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
@@ -52,6 +52,8 @@ namespace CinemaSystemManagementApp
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
+            this.ProducerSurnameBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,6 +91,8 @@ namespace CinemaSystemManagementApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.ProducerSurnameBox);
             this.panel1.Controls.Add(this.AllowedAgeBox);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.MovieDatePicker);
@@ -100,7 +104,7 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.GenresBox);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.MovieProduceBox);
+            this.panel1.Controls.Add(this.ProducerNameBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.MovieDurationBox);
             this.panel1.Controls.Add(this.lblError);
@@ -267,17 +271,17 @@ namespace CinemaSystemManagementApp
             this.label3.Location = new System.Drawing.Point(39, 180);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 17);
+            this.label3.Size = new System.Drawing.Size(110, 17);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Режиссер";
+            this.label3.Text = "Имя режиссёра";
             // 
-            // MovieProduceBox
+            // ProducerNameBox
             // 
-            this.MovieProduceBox.Location = new System.Drawing.Point(44, 203);
-            this.MovieProduceBox.Margin = new System.Windows.Forms.Padding(4);
-            this.MovieProduceBox.Name = "MovieProduceBox";
-            this.MovieProduceBox.Size = new System.Drawing.Size(441, 22);
-            this.MovieProduceBox.TabIndex = 4;
+            this.ProducerNameBox.Location = new System.Drawing.Point(44, 203);
+            this.ProducerNameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ProducerNameBox.Name = "ProducerNameBox";
+            this.ProducerNameBox.Size = new System.Drawing.Size(211, 22);
+            this.ProducerNameBox.TabIndex = 4;
             // 
             // label1
             // 
@@ -358,6 +362,24 @@ namespace CinemaSystemManagementApp
             this.HeaderLabel.Text = "Добавить фильм";
             this.HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ProducerSurnameBox
+            // 
+            this.ProducerSurnameBox.Location = new System.Drawing.Point(284, 203);
+            this.ProducerSurnameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ProducerSurnameBox.Name = "ProducerSurnameBox";
+            this.ProducerSurnameBox.Size = new System.Drawing.Size(201, 22);
+            this.ProducerSurnameBox.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(281, 180);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 17);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Фамилия режиссёра";
+            // 
             // AddMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -392,7 +414,7 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.TextBox MovieNameBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox MovieProduceBox;
+        private System.Windows.Forms.TextBox ProducerNameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox MovieDurationBox;
         private System.Windows.Forms.Label label5;
@@ -405,5 +427,7 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Label pnlError;
         private System.Windows.Forms.CheckedListBox GenresBox;
         private System.Windows.Forms.ComboBox AllowedAgeBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox ProducerSurnameBox;
     }
 }

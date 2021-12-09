@@ -85,7 +85,7 @@ namespace CinemaSystemManagementApp
             this.ShowSessionsPanelButton.Name = "ShowSessionsPanelButton";
             this.ShowSessionsPanelButton.Size = new System.Drawing.Size(185, 38);
             this.ShowSessionsPanelButton.TabIndex = 6;
-            this.ShowSessionsPanelButton.Text = "Наша афиша";
+            this.ShowSessionsPanelButton.Text = "Наша сеансы";
             this.ShowSessionsPanelButton.UseVisualStyleBackColor = false;
             this.ShowSessionsPanelButton.Click += new System.EventHandler(this.ShowSessionsPanelButton_Click);
             // 

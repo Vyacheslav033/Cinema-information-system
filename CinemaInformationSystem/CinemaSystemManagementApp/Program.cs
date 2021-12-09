@@ -17,7 +17,8 @@ namespace CinemaSystemManagementApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminMenuForm("wfdwfw"));
+            Application.Run(new AdminMenuForm("efw"));
+            //Application.Run(new AddMovieForm(RequestType.Add, 1));
         }
     }
 }

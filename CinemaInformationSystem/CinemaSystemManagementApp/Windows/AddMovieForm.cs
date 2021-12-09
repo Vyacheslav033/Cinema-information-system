@@ -8,29 +8,29 @@ namespace CinemaSystemManagementApp
     public partial class AddMovieForm : Form
     {
         private RequestType requestType;
+        private int idForEdit;
 
-       
-        public AddMovieForm(RequestType requestType)
+        public AddMovieForm(RequestType requestType, int idForEdit)
         {
             InitializeComponent();
+
+            this.idForEdit = idForEdit;
+            this.requestType = requestType;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            AllowedAgeBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             if (requestType == RequestType.Update)
             {
                 HeaderLabel.Text = "Редактировать фильм";
                 AddOrUpdateButton.Text = "Редактировать";
+                GetMovieFromDatabase(idForEdit);
             }
-
-            this.requestType = requestType;
-            this.StartPosition = FormStartPosition.CenterScreen;
-            AllowedAgeBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-      
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             int movieDuration = 0;
-            string movieProduce = MovieProduceBox.Text;
             string movieCountry = MovieCountryBox.Text; 
 
             if ( !int.TryParse(MovieDurationBox.Text, out movieDuration) )
@@ -38,17 +38,12 @@ namespace CinemaSystemManagementApp
                 MessageBox.Show("Введите продолжительность фильма!");
                 return;
             }
-            else if(IsEmptyValue(movieProduce))
-            {
-                MessageBox.Show("Введите режисёра фильма!");
-                return;
-            }
             else if (GenresBox.CheckedItems.Count != 1)
             {
                 MessageBox.Show("Выберите 1 жанр!");
                 return;
             }
-            else if(IsEmptyValue(movieCountry))
+            else if(string.IsNullOrWhiteSpace(movieCountry))
             {
                 MessageBox.Show("Введите страну фильма!");
                 return;
@@ -59,16 +54,54 @@ namespace CinemaSystemManagementApp
                 // TODO: Айди режиссёра находить по значению в комбобокс
 
                 var movie = new Movie(MovieNameBox.Text, MovieDatePicker.Value,
-                    movieDuration, AllowedAgeBox.Text, 2);
+                    movieDuration, AllowedAgeBox.Text, ProducerNameBox.Text, ProducerSurnameBox.Text);
 
-                string request = Requests.AddMovie(movie);
+                string request = " ";
+
+                if (requestType == RequestType.Update)
+                {
+                    request = Requests.UpdateMovieById(idForEdit, movie);
+                }
+                else if (requestType == RequestType.Add)
+                {
+                    request = Requests.AddMovie(movie);
+                }
 
                 var myDatabase = new MyDatabase();
 
                 if ( myDatabase.MyСommand.RunRequest(request) )
-                    MessageBox.Show("Фильм добавлен");
+                    MessageBox.Show("Фильм добавлен/изменён");
                 else
-                    MessageBox.Show("Фильм не был добавлен");
+                    MessageBox.Show("Фильм не был добавлен/изменён");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        
+        private void GetMovieFromDatabase(int id)
+        {
+            try
+            {
+                var myDatabase = new MyDatabase();
+                var movieData = myDatabase.MyСommand.GetReadData(Requests.GetMovieById(id));
+
+                if (movieData.Count != 7)
+                {
+                    MessageBox.Show("Данный фильм не найден.");
+                }
+
+                string movieName = movieData[1];
+                DateTime releaseData = Convert.ToDateTime(movieData[2]);
+                int duration = Convert.ToInt32(movieData[3]);
+                string movieType = movieData[4];
+                string allowedAgeId = movieData[5];
+                int producereId = Convert.ToInt32(movieData[6]);
+
+                MovieNameBox.Text = movieName;
+                MovieDatePicker.Value = releaseData;
+                MovieDurationBox.Text = duration.ToString();
             }
             catch (Exception ex)
             {
@@ -76,16 +109,6 @@ namespace CinemaSystemManagementApp
             }
         }
 
-        private bool IsEmptyValue(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return true;
-            }
-
-            return false;
-        }
-            
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();

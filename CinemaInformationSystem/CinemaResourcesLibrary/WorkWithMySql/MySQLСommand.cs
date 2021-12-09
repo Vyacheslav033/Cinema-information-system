@@ -80,7 +80,7 @@ namespace CinemaResourcesLibrary
         }
 
         /// <summary>
-        /// Получить чситанные данные.
+        /// Получить считанные данные.
         /// </summary>
         /// <param name="request"> Запрос. </param>
         /// <returns> Возвращает лист с читаными данными запроса в строковом представлении. </returns>

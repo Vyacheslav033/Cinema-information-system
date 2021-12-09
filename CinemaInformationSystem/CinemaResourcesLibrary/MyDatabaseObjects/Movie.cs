@@ -11,9 +11,11 @@ namespace CinemaResourcesLibrary
         public DateTime ReleaseDate { get; }
         public int Duration { get; }
         public string AllowedAge { get; }
-        public int ProducerId { get; }
+        public string ProducerName { get; }
+        public string ProducerSurname { get; }
 
-        public Movie(string name, DateTime releaseDate, int duration, string allowedAge, int producerId)
+        public Movie(string name, DateTime releaseDate, int duration,
+            string allowedAge, string producerName, string producerSurname)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -31,16 +33,21 @@ namespace CinemaResourcesLibrary
             {
                 throw new ArgumentException("Возрастное ограничение не было задано.");
             }
-            if (producerId <= 0)
+            if (string.IsNullOrWhiteSpace(producerName))
             {
-                throw new ArgumentException("Айди продюсера должно быть > 0.");
+                throw new ArgumentException("Имя режиссёра не было задано.");
+            }
+            if (string.IsNullOrWhiteSpace(producerSurname))
+            {
+                throw new ArgumentException("Фамилия режиссёра не была задана.");
             }
 
             Name = name;
             ReleaseDate = releaseDate;
             Duration = duration;
             AllowedAge = allowedAge;
-            ProducerId = producerId;
+            ProducerName = producerName;
+            ProducerSurname = producerSurname;
         }  
     }
 }

@@ -116,6 +116,7 @@ namespace CinemaSystemManagementApp
             this.BuyPlace.TabIndex = 3;
             this.BuyPlace.Text = "Забронировать место";
             this.BuyPlace.UseVisualStyleBackColor = false;
+            this.BuyPlace.Click += new System.EventHandler(this.BuyPlace_Click);
             // 
             // PrintSeans
             // 

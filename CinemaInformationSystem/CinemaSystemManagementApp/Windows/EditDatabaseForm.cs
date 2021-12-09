@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using CinemaResourcesLibrary;
 
@@ -15,27 +16,9 @@ namespace CinemaSystemManagementApp
 
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            string title = "";
-            request = "";
-
-            if (requestType == RequestName.Movies)
-            {
-                title = "Фильмы";
-                request = Requests.GetMovies();
-            }
-            else if (requestType == RequestName.Sessions)
-            {
-                title = "Сеансы";
-                request = Requests.GetSessions();
-            }
-            else if (requestType == RequestName.Tickets)
-            {
-                title = "Билеты";
-                request = Requests.GetTickets();
-            }
-
-            HeadPanel.Text = title;
             this.requestType = requestType;
+
+            ChooseForm(RequestType.Add, 1);
 
             FillTable();
         }
@@ -55,21 +38,45 @@ namespace CinemaSystemManagementApp
 
         private void UpdateDataButton_Click(object sender, EventArgs e)
         {
-            FillTable();
+            FillTable();           
         }
+
+        
 
         private void EditEntryButton_Click(object sender, EventArgs e)
         {
-            var form = ChooseForm(RequestType.Update);
-            form.Show();
+            int selectedCellCount = DataTable.GetCellCount(DataGridViewElementStates.Selected);
 
-            //var myDatabase = new MyDatabase();
-            //var list = myDatabase.MyСommand.GetReadData("SELECT * FROM filmoteka.фильмы;");
+            if (selectedCellCount != 1)
+            {
+                MessageBox.Show("Выберите одну запись для редактирования.");
+                return;
+            }
+
+            int row = DataTable.SelectedCells[0].RowIndex;
+            int column = DataTable.SelectedCells[0].ColumnIndex;
+
+            if (column != 0)
+            {
+                MessageBox.Show("Выберите номер запись для редактирования.");
+                return;
+            }
+
+            string value = DataTable.Rows[row].Cells[column].Value.ToString();
+            int intValue = 0;
+
+            if ( !int.TryParse(value, out intValue) )
+            {
+                MessageBox.Show("Ячейка с предполагаемым айди записи имеет не верный формат.");
+            }
+
+            var form = ChooseForm(RequestType.Update, intValue);
+            form.Show();
         }
 
         private void AddEntryButton_Click(object sender, EventArgs e)
         {
-            var form = ChooseForm(RequestType.Add);
+            var form = ChooseForm(RequestType.Add, 0);
             form.Show();
         }
 
@@ -79,23 +86,34 @@ namespace CinemaSystemManagementApp
             deleteForm.Show();
         }
 
-        private Form ChooseForm(RequestType type)
+        private Form ChooseForm(RequestType type, int idForEdit)
         {
+
             if (requestType == RequestName.Movies)
             {
-                return new AddMovieForm(type);
+                HeadPanel.Text = "Фильмы";
+                this.request = Requests.GetMovies();
+
+                return new AddMovieForm(type, idForEdit);
             }
             else if (requestType == RequestName.Sessions)
             {
-                return new AddSessionForm(type);
+                HeadPanel.Text = "Сеансы";
+                this.request = Requests.GetSessions();
+
+                return new AddSessionForm(type, idForEdit);
             }
             else if (requestType == RequestName.Tickets)
             {
-                return new AddTicketForm(type);
+                HeadPanel.Text = "Билеты";
+                this.request = Requests.GetTickets();
+
+                return new AddTicketForm(type, idForEdit);
             }
 
             return null;
         }
+
         
     }
 }
