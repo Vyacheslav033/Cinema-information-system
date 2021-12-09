@@ -82,9 +82,15 @@ namespace CinemaSystemManagementApp
             sessions.Show();
         }
 
+        /// <summary>
+        /// Открыть форму для бронирования билетов.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BuyPlace_Click(object sender, EventArgs e)
         {
-
+            var form = new BookTicketForm();
+            form.Show();
         }
     }
 }

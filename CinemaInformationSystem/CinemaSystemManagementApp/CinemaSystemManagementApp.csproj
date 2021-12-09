@@ -115,6 +115,12 @@
     <Compile Include="Windows\AdminMenuForm.Designer.cs">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\BookTicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\BookTicketForm.Designer.cs">
+      <DependentUpon>BookTicketForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DeleteFromDatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\AdminMenuForm.resx">
       <DependentUpon>AdminMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\BookTicketForm.resx">
+      <DependentUpon>BookTicketForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\DeleteFromDatabaseForm.resx">
       <DependentUpon>DeleteFromDatabaseForm.cs</DependentUpon>
