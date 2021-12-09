@@ -6,9 +6,20 @@ namespace CinemaSystemManagementApp
 {
     public partial class AddTicketForm : Form
     {
-        public AddTicketForm()
+        private RequestType requestType;
+
+
+        public AddTicketForm(RequestType requestType)
         {
             InitializeComponent();
+
+            if (requestType == RequestType.Update)
+            {
+                HeaderLabel.Text = "Редактировать билет";
+                AddOrUpdateButton.Text = "Редактировать";
+            }
+
+            this.requestType = requestType;
             this.StartPosition = FormStartPosition.CenterScreen;
             PaymentTypeBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }

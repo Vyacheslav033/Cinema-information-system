@@ -38,7 +38,7 @@ namespace CinemaSystemManagementApp
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlError = new System.Windows.Forms.Label();
             this.MovieDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.BtnAdd = new System.Windows.Forms.Button();
+            this.AddOrUpdateButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.MoviePriceBox = new System.Windows.Forms.TextBox();
@@ -75,7 +75,7 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.MovieTimePicker);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.MovieDatePicker);
-            this.panel1.Controls.Add(this.BtnAdd);
+            this.panel1.Controls.Add(this.AddOrUpdateButton);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.MoviePriceBox);
@@ -169,23 +169,23 @@ namespace CinemaSystemManagementApp
             this.MovieDatePicker.TabIndex = 16;
             this.MovieDatePicker.Value = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
             // 
-            // BtnAdd
+            // AddOrUpdateButton
             // 
-            this.BtnAdd.AutoSize = true;
-            this.BtnAdd.BackColor = System.Drawing.Color.YellowGreen;
-            this.BtnAdd.FlatAppearance.BorderSize = 0;
-            this.BtnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnAdd.Location = new System.Drawing.Point(195, 383);
-            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(112, 42);
-            this.BtnAdd.TabIndex = 14;
-            this.BtnAdd.Text = "Добавить";
-            this.BtnAdd.UseVisualStyleBackColor = false;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            this.AddOrUpdateButton.AutoSize = true;
+            this.AddOrUpdateButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.AddOrUpdateButton.FlatAppearance.BorderSize = 0;
+            this.AddOrUpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.AddOrUpdateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
+            this.AddOrUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddOrUpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddOrUpdateButton.Location = new System.Drawing.Point(195, 383);
+            this.AddOrUpdateButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddOrUpdateButton.Name = "AddOrUpdateButton";
+            this.AddOrUpdateButton.Size = new System.Drawing.Size(112, 42);
+            this.AddOrUpdateButton.TabIndex = 14;
+            this.AddOrUpdateButton.Text = "Добавить";
+            this.AddOrUpdateButton.UseVisualStyleBackColor = false;
+            this.AddOrUpdateButton.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // label4
             // 
@@ -323,7 +323,7 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox MoviePriceBox;
-        private System.Windows.Forms.Button BtnAdd;
+        private System.Windows.Forms.Button AddOrUpdateButton;
         private System.Windows.Forms.DateTimePicker MovieDatePicker;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label pnlError;

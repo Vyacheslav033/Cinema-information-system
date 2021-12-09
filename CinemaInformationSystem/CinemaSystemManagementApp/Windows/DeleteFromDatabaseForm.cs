@@ -12,6 +12,8 @@ namespace CinemaSystemManagementApp
         {
             InitializeComponent();
 
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             string headerPanelValue = "";
             string getNumberPanelValue = "";
 

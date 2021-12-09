@@ -7,12 +7,25 @@ namespace CinemaSystemManagementApp
 {
     public partial class AddMovieForm : Form
     {
-        public AddMovieForm()
+        private RequestType requestType;
+
+       
+        public AddMovieForm(RequestType requestType)
         {
             InitializeComponent();
+
+            if (requestType == RequestType.Update)
+            {
+                HeaderLabel.Text = "Редактировать фильм";
+                AddOrUpdateButton.Text = "Редактировать";
+            }
+
+            this.requestType = requestType;
             this.StartPosition = FormStartPosition.CenterScreen;
             AllowedAgeBox.DropDownStyle = ComboBoxStyle.DropDownList;
-        }       
+        }
+
+      
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {

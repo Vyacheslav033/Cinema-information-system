@@ -84,7 +84,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgeDTO.cs" />
     <Compile Include="MyDatabase.cs" />
     <Compile Include="MyDatabaseObjects\Movie.cs" />
     <Compile Include="MyDatabaseObjects\Ticket.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.Common;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace CinemaResourcesLibrary
@@ -78,6 +79,40 @@ namespace CinemaResourcesLibrary
             return isPerform;
         }
 
+        /// <summary>
+        /// Получить чситанные данные.
+        /// </summary>
+        /// <param name="request"> Запрос. </param>
+        /// <returns> Возвращает лист с читаными данными запроса в строковом представлении. </returns>
+        public List<string> GetReadData(string request)
+        {
+            IsEmptyRequest(request);
+
+            var data = new List<string>();
+            
+            connector.Connect();
+            var commandIns = new MySqlCommand(request, connector.Connection);
+            MySqlDataReader reader = commandIns.ExecuteReader();
+
+            if (!reader.HasRows)
+            {
+                throw new ArgumentException("Таблица не содержит строк.");
+            }
+
+            while (reader.Read())
+            {
+                for (var j = 0; j < reader.FieldCount; j++)
+                {
+                    data.Add(reader.GetValue(j).ToString());
+                }
+            }
+
+            reader.Close();
+            connector.Disconnect();
+
+            return data;
+        }
+
         private void IsEmptyRequest(string request)
         {
             if (string.IsNullOrWhiteSpace(request))
@@ -85,7 +120,5 @@ namespace CinemaResourcesLibrary
                 throw new ArgumentException("Запрос не был передан.");
             }
         }
-
-
     }
 }

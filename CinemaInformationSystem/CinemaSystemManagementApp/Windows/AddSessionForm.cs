@@ -6,9 +6,20 @@ namespace CinemaSystemManagementApp
 {
     public partial class AddSessionForm : Form
     {
-        public AddSessionForm()
+        private RequestType requestType;
+
+
+        public AddSessionForm(RequestType requestType)
         {
             InitializeComponent();
+
+            if (requestType == RequestType.Update)
+            {
+                HeaderLabel.Text = "Редактировать сеанс";
+                AddOrUpdateButton.Text = "Редактировать";
+            }
+
+            this.requestType = requestType;
             this.StartPosition = FormStartPosition.CenterScreen;
             HallNameBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }

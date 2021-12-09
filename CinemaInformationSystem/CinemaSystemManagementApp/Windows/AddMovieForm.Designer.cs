@@ -32,10 +32,11 @@ namespace CinemaSystemManagementApp
             this.panelHead = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AllowedAgeBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlError = new System.Windows.Forms.Label();
             this.MovieDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.BtnAdd = new System.Windows.Forms.Button();
+            this.AddOrUpdateButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.MovieCountryBox = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@ namespace CinemaSystemManagementApp
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
-            this.AllowedAgeBox = new System.Windows.Forms.ComboBox();
             this.MainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,7 +92,7 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.AllowedAgeBox);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.MovieDatePicker);
-            this.panel1.Controls.Add(this.BtnAdd);
+            this.panel1.Controls.Add(this.AddOrUpdateButton);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.MovieCountryBox);
@@ -110,6 +110,21 @@ namespace CinemaSystemManagementApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 711);
             this.panel1.TabIndex = 1;
+            // 
+            // AllowedAgeBox
+            // 
+            this.AllowedAgeBox.FormattingEnabled = true;
+            this.AllowedAgeBox.Items.AddRange(new object[] {
+            "0+",
+            "6+",
+            "12+",
+            "14+",
+            "16+",
+            "18+"});
+            this.AllowedAgeBox.Location = new System.Drawing.Point(47, 574);
+            this.AllowedAgeBox.Name = "AllowedAgeBox";
+            this.AllowedAgeBox.Size = new System.Drawing.Size(161, 24);
+            this.AllowedAgeBox.TabIndex = 18;
             // 
             // panel3
             // 
@@ -150,23 +165,23 @@ namespace CinemaSystemManagementApp
             this.MovieDatePicker.TabIndex = 16;
             this.MovieDatePicker.Value = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
             // 
-            // BtnAdd
+            // AddOrUpdateButton
             // 
-            this.BtnAdd.AutoSize = true;
-            this.BtnAdd.BackColor = System.Drawing.Color.YellowGreen;
-            this.BtnAdd.FlatAppearance.BorderSize = 0;
-            this.BtnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnAdd.Location = new System.Drawing.Point(198, 626);
-            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(112, 42);
-            this.BtnAdd.TabIndex = 14;
-            this.BtnAdd.Text = "Добавить";
-            this.BtnAdd.UseVisualStyleBackColor = false;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            this.AddOrUpdateButton.AutoSize = true;
+            this.AddOrUpdateButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.AddOrUpdateButton.FlatAppearance.BorderSize = 0;
+            this.AddOrUpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.AddOrUpdateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
+            this.AddOrUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddOrUpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddOrUpdateButton.Location = new System.Drawing.Point(198, 626);
+            this.AddOrUpdateButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddOrUpdateButton.Name = "AddOrUpdateButton";
+            this.AddOrUpdateButton.Size = new System.Drawing.Size(112, 42);
+            this.AddOrUpdateButton.TabIndex = 14;
+            this.AddOrUpdateButton.Text = "Добавить";
+            this.AddOrUpdateButton.UseVisualStyleBackColor = false;
+            this.AddOrUpdateButton.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // label7
             // 
@@ -343,21 +358,6 @@ namespace CinemaSystemManagementApp
             this.HeaderLabel.Text = "Добавить фильм";
             this.HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // AllowedAgeBox
-            // 
-            this.AllowedAgeBox.FormattingEnabled = true;
-            this.AllowedAgeBox.Items.AddRange(new object[] {
-            "0+",
-            "6+",
-            "12+",
-            "14+",
-            "16+",
-            "18+"});
-            this.AllowedAgeBox.Location = new System.Drawing.Point(47, 574);
-            this.AllowedAgeBox.Name = "AllowedAgeBox";
-            this.AllowedAgeBox.Size = new System.Drawing.Size(161, 24);
-            this.AllowedAgeBox.TabIndex = 18;
-            // 
             // AddMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -399,7 +399,7 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox MovieCountryBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button BtnAdd;
+        private System.Windows.Forms.Button AddOrUpdateButton;
         private System.Windows.Forms.DateTimePicker MovieDatePicker;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label pnlError;

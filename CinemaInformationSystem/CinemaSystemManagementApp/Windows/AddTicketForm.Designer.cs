@@ -31,6 +31,10 @@ namespace CinemaSystemManagementApp
         {
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.EmployeeIdBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.SessionNumberBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PaymentTypeBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,7 +42,7 @@ namespace CinemaSystemManagementApp
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlError = new System.Windows.Forms.Label();
             this.TicketDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.BtnAdd = new System.Windows.Forms.Button();
+            this.AddOrUpdateButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.PlaceNumberBox = new System.Windows.Forms.TextBox();
@@ -48,10 +52,6 @@ namespace CinemaSystemManagementApp
             this.Exit = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.panelHead = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.EmployeeIdBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.SessionNumberBox = new System.Windows.Forms.TextBox();
             this.MainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -83,7 +83,7 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.TicketTimePicker);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.TicketDatePicker);
-            this.panel1.Controls.Add(this.BtnAdd);
+            this.panel1.Controls.Add(this.AddOrUpdateButton);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.PlaceNumberBox);
@@ -94,6 +94,42 @@ namespace CinemaSystemManagementApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 586);
             this.panel1.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(131, 439);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 17);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Номер сотрудника";
+            // 
+            // EmployeeIdBox
+            // 
+            this.EmployeeIdBox.Location = new System.Drawing.Point(134, 460);
+            this.EmployeeIdBox.Margin = new System.Windows.Forms.Padding(4);
+            this.EmployeeIdBox.Name = "EmployeeIdBox";
+            this.EmployeeIdBox.Size = new System.Drawing.Size(267, 22);
+            this.EmployeeIdBox.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(131, 377);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 17);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Номер сеанса";
+            // 
+            // SessionNumberBox
+            // 
+            this.SessionNumberBox.Location = new System.Drawing.Point(136, 400);
+            this.SessionNumberBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SessionNumberBox.Name = "SessionNumberBox";
+            this.SessionNumberBox.Size = new System.Drawing.Size(265, 22);
+            this.SessionNumberBox.TabIndex = 24;
             // 
             // label1
             // 
@@ -175,23 +211,23 @@ namespace CinemaSystemManagementApp
             this.TicketDatePicker.TabIndex = 16;
             this.TicketDatePicker.Value = new System.DateTime(2021, 11, 16, 0, 0, 0, 0);
             // 
-            // BtnAdd
+            // AddOrUpdateButton
             // 
-            this.BtnAdd.AutoSize = true;
-            this.BtnAdd.BackColor = System.Drawing.Color.YellowGreen;
-            this.BtnAdd.FlatAppearance.BorderSize = 0;
-            this.BtnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BtnAdd.Location = new System.Drawing.Point(215, 512);
-            this.BtnAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(112, 42);
-            this.BtnAdd.TabIndex = 14;
-            this.BtnAdd.Text = "Добавить";
-            this.BtnAdd.UseVisualStyleBackColor = false;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            this.AddOrUpdateButton.AutoSize = true;
+            this.AddOrUpdateButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.AddOrUpdateButton.FlatAppearance.BorderSize = 0;
+            this.AddOrUpdateButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.AddOrUpdateButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
+            this.AddOrUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddOrUpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddOrUpdateButton.Location = new System.Drawing.Point(215, 512);
+            this.AddOrUpdateButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddOrUpdateButton.Name = "AddOrUpdateButton";
+            this.AddOrUpdateButton.Size = new System.Drawing.Size(112, 42);
+            this.AddOrUpdateButton.TabIndex = 14;
+            this.AddOrUpdateButton.Text = "Добавить";
+            this.AddOrUpdateButton.UseVisualStyleBackColor = false;
+            this.AddOrUpdateButton.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // label4
             // 
@@ -296,42 +332,6 @@ namespace CinemaSystemManagementApp
             this.panelHead.Text = "Leviafan";
             this.panelHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(131, 439);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 17);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Номер сотрудника";
-            // 
-            // EmployeeIdBox
-            // 
-            this.EmployeeIdBox.Location = new System.Drawing.Point(134, 460);
-            this.EmployeeIdBox.Margin = new System.Windows.Forms.Padding(4);
-            this.EmployeeIdBox.Name = "EmployeeIdBox";
-            this.EmployeeIdBox.Size = new System.Drawing.Size(267, 22);
-            this.EmployeeIdBox.TabIndex = 26;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(131, 377);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 17);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Номер сеанса";
-            // 
-            // SessionNumberBox
-            // 
-            this.SessionNumberBox.Location = new System.Drawing.Point(136, 400);
-            this.SessionNumberBox.Margin = new System.Windows.Forms.Padding(4);
-            this.SessionNumberBox.Name = "SessionNumberBox";
-            this.SessionNumberBox.Size = new System.Drawing.Size(265, 22);
-            this.SessionNumberBox.TabIndex = 24;
-            // 
             // AddTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -365,7 +365,7 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox PlaceNumberBox;
-        private System.Windows.Forms.Button BtnAdd;
+        private System.Windows.Forms.Button AddOrUpdateButton;
         private System.Windows.Forms.DateTimePicker TicketDatePicker;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label pnlError;
