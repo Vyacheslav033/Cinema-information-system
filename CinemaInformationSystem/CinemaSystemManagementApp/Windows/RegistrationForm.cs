@@ -1,17 +1,15 @@
 ﻿using CinemaResourcesLibrary;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CinemaSystemManagementApp
 {
+    /// <summary>
+    /// Форма авторизации администратора.
+    /// </summary>
     public partial class RegistrationForm : Form
     {
         private Point lastPoint;
@@ -21,8 +19,19 @@ namespace CinemaSystemManagementApp
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.UserPassword.UseSystemPasswordChar = false;
+
+            FillLoginBox();
+            FillPasswordBox();
+        }
+
+        private void FillLoginBox()
+        {
             UserLogin.Text = "Введите логин";
             UserLogin.ForeColor = Color.Gray;
+        }
+
+        private void FillPasswordBox()
+        {
             UserPassword.Text = "Введите пароль";
             UserPassword.ForeColor = Color.Gray;
         }
@@ -72,9 +81,7 @@ namespace CinemaSystemManagementApp
         {
             if (UserLogin.Text == "")
             {
-                UserLogin.Text = "Введите логин";
-                UserLogin.ForeColor = Color.Gray;
-
+                FillLoginBox();              
             }
         }
 
@@ -93,61 +100,52 @@ namespace CinemaSystemManagementApp
             if (UserPassword.Text == "")
             {
                 this.UserPassword.UseSystemPasswordChar = false;
-                UserPassword.Text = "Введите пароль";
-                UserPassword.ForeColor = Color.Gray;
-
+                FillPasswordBox();
             }
         }
 
-        //авторизация
+        /// <summary>
+        /// Авторизация.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtLogin_Click(object sender, EventArgs e)
-        {
-            String loginUser = UserLogin.Text;
-            String passUser = UserPassword.Text;
-
-            if (string.IsNullOrWhiteSpace(loginUser))
+        {           
+            try
             {
-                MessageBox.Show("Введите логин!");
+                string login = UserLogin.Text;
+                string password = UserPassword.Text;
+
+                var myDatabase = new MyDatabase();
+                string request = Requests.IsAdministrator(login, password);
+                var adminData = myDatabase.MyСommand.GetReadData(request);
+
+                // 4 так как строка с информацие о админе содержит 4 столбца.
+                if (adminData.Count != 4)
+                {
+                    MessageBox.Show("Авторизация не пройдена.");
+                    this.UserPassword.UseSystemPasswordChar = false;
+                    FillLoginBox();
+                    FillPasswordBox();
+                }
+                else
+                {
+                    int id = Convert.ToInt32(adminData[0]);
+                    string actualLogin = adminData[1];
+                    string actualPassword = adminData[2];
+                    int employeeId = Convert.ToInt32(adminData[3]);
+
+                    MessageBox.Show("Авторизация прошла успешно.");
+
+                    this.Hide();
+                    var admin = new AdminMenuForm(actualLogin);
+                    admin.Show();
+                }
             }
-            else if (string.IsNullOrWhiteSpace(passUser))
+            catch (Exception ex)
             {
-                MessageBox.Show("Введите пароль!");
-                
+                MessageBox.Show(ex.Message);
             }
-            else
-            {
-                //var connector = new MySQLConnector("localhost", "filmoteka", "root", "password");
-
-                //DataTable table = new DataTable();
-
-                //MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-                //MySqlCommand command = new MySqlCommand("SELECT login, password FROM `сотрудники` WHERE `login` = @uL AND `password` = @uP", connector.Connection);
-                //command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
-                //command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
-
-                //adapter.SelectCommand = command;
-                //adapter.Fill(table);
-
-                //if (table.Rows.Count > 0)
-                //{
-                //    MessageBox.Show("Успешно");
-                //    this.Hide();
-                //    var admin = new AdminMenuForm();
-                //    admin.Show();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Не успешно");
-                //    this.UserPassword.UseSystemPasswordChar = false;
-                //    UserLogin.Text = "Введите логин";
-                //    UserLogin.ForeColor = Color.Gray;
-                //    UserPassword.Text = "Введите пароль";
-                //    UserPassword.ForeColor = Color.Gray;
-                //}
-            }
-
-
         }
     }
 }

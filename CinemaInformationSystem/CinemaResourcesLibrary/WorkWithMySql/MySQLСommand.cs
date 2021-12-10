@@ -94,10 +94,10 @@ namespace CinemaResourcesLibrary
             var commandIns = new MySqlCommand(request, connector.Connection);
             MySqlDataReader reader = commandIns.ExecuteReader();
 
-            if (!reader.HasRows)
-            {
-                throw new ArgumentException("Таблица не содержит строк.");
-            }
+            //if (!reader.HasRows)
+            //{
+            //    throw new ArgumentException("Таблица не содержит строк.");
+            //}
 
             while (reader.Read())
             {

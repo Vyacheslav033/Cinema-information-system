@@ -164,7 +164,6 @@ namespace CinemaSystemManagementApp
             this.HeadPanel.Name = "HeadPanel";
             this.HeadPanel.Size = new System.Drawing.Size(538, 145);
             this.HeadPanel.TabIndex = 0;
-            this.HeadPanel.Text = "Администратор - ";
             this.HeadPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdminMenuForm

@@ -14,7 +14,7 @@ namespace CinemaSystemManagementApp
 
             this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Normal;
-            HeadPanel.Text += adminLogin;
+            HeadPanel.Text += "Администратор: " + adminLogin;
         }
 
         private void Exit_MouseEnter(object sender, EventArgs e)
@@ -45,13 +45,12 @@ namespace CinemaSystemManagementApp
             adminTicketsPanel.Show();
         }
 
-
         private void GoBackButton_Click(object sender, EventArgs e)
         {
+            this.Close();
             var menu = new MenuForm();
             menu.Show();
         }
-
-        
+  
     }
 }

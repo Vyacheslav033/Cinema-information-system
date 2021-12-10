@@ -276,6 +276,20 @@ namespace CinemaResourcesLibrary
             return query;
         }
 
+        /// <summary>
+        /// Проверка на администратора.
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static string IsAdministrator(string login, string password)
+        {
+            string query =
+                       $"SELECT * FROM администраторы WHERE Логин = \"{login}\" AND Пароль = \"{password}\";";
+
+            return query;
+        }
+
 
     }
 }
