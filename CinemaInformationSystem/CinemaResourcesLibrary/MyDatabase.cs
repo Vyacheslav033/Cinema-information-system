@@ -8,6 +8,7 @@ namespace CinemaResourcesLibrary
         private MySQLConnector myConnection;
         private MySQLСommand myCommand;
 
+
         public MyDatabase()
         {
             myConnection = new MySQLConnector("localhost", "filmoteka", "root", "password");
