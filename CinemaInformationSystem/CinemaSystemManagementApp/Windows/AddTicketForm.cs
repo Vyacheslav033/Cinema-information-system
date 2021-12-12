@@ -64,7 +64,7 @@ namespace CinemaSystemManagementApp
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             int rowNumber = 0;
-            int placeNumber = 0;
+            int seatNumber = 0;
             int employeeId = 0;
             int sessionId = 0;
 
@@ -73,7 +73,7 @@ namespace CinemaSystemManagementApp
                 MessageBox.Show("Номер ряда введён не корректно!");
                 return;
             }
-            else if (!int.TryParse(PlaceNumberBox.Text, out placeNumber))
+            else if (!int.TryParse(PlaceNumberBox.Text, out seatNumber))
             {
                 MessageBox.Show("Номер места введён не корректно!");
                 return;
@@ -92,7 +92,7 @@ namespace CinemaSystemManagementApp
             try
             {
                 var ticket = new Ticket(TicketDatePicker.Value, TicketTimePicker.Value,
-                    employeeId, PaymentTypeBox.Text, sessionId, rowNumber, placeNumber);
+                    employeeId, PaymentTypeBox.Text, sessionId, new Seat(seatNumber, rowNumber));
 
                 string request = "";
 

@@ -1,41 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
 {
+    /// <summary>
+    /// Форма выбра места в кинозале.
+    /// </summary>
     public partial class ChoseSeatForm : Form
     {
-        private Seat currentSeat;
-        private Color currentButtonColor;
+        private Seat selectedSeat;
+        private Color selectedButtonColor;
+        private Color reservedSeatColor;
+        private Color freeSeatColor;
+        private Color selectedSeatColor;
+        private int sessionId;
 
-        public ChoseSeatForm()
+        public ChoseSeatForm(int sessionId)
         {
             InitializeComponent();
 
-            currentSeat = null;
-            currentButtonColor = Color.Green;
+            selectedSeat = null;
+            this.sessionId = sessionId;
+            selectedButtonColor = Color.Green;
+            reservedSeatColor = Color.Red;
+            freeSeatColor = Color.Green;
+            selectedSeatColor = Color.Blue;
 
-            var list = new List<Seat>()
+            this.StartPosition = FormStartPosition.CenterScreen;
+            ReservedSeatColorPanel.BackColor = reservedSeatColor;
+            FreeSeatColorPanel.BackColor = freeSeatColor;
+            SelectedSeatColorPanel.BackColor = selectedSeatColor;
+
+            try
             {
-                new Seat(1, 1),
-                new Seat(5, 9),
-                new Seat(10, 8),
-                new Seat(3, 4),
-                new Seat(15, 2),
-                new Seat(7, 8),
-                new Seat(11, 5)
-            };
+                //
+                var seats = new List<Seat>();
+                //
 
+                FillCinemaHall(9, 15, seats);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-            FillCinemaHall(9, 15, list);
+        /// <summary>
+        /// Получить список забранированных мест по сеансу.
+        /// </summary>
+        /// <param name="sessionId"> Носер сеанса. </param>
+        private List<Seat> GetReservedSeats(int sessionId)
+        {
+            var seats = new List<Seat>();
+
+            var myDatabase = new MyDatabase();
+            var seatsData = myDatabase.MyСommand.GetReadData(Requests.GetReservedSeatsBySessionId(sessionId));
+
+            if (seatsData.Count == 0)
+            {
+                return seats;
+            }
+            if (seatsData.Count % 2 != 0)
+            {
+                throw new ArgumentException("Данные о забронированных местах были нарушены.");
+            }
+
+            for (var i = seatsData.Count - 1; i >= 1; i = i - 2)
+            {
+                int seatN = Convert.ToInt32(seatsData[i]);
+                int rowN = Convert.ToInt32(seatsData[i - 1]);
+
+                seats.Add(new Seat(seatN, rowN));
+            }
+
+            return seats;
         }
 
         /// <summary>
@@ -75,15 +116,17 @@ namespace CinemaSystemManagementApp
                     }
                     else
                     {
-                        Color seatColor = Color.Green;
+                        Color seatColor = freeSeatColor;
+                        bool enabledValue = true;
 
                         var seat = new Seat(seatNumber, i + 1);
 
                         foreach (Seat reservedSeat in reservedSeats)
                         {
-                            if (reservedSeat.Equals(seat))
+                            if (seat.Equals(reservedSeat))
                             {
-                                seatColor = Color.Red;
+                                seatColor = reservedSeatColor;
+                                enabledValue = false;
                                 break;
                             }
                         }
@@ -93,6 +136,7 @@ namespace CinemaSystemManagementApp
                             Width = buttonWidth,
                             Height = buttonHeight,
                             BackColor = seatColor,
+                            Enabled = enabledValue,
                             Location = new Point(positionX, positionY)
                         };
 
@@ -110,52 +154,61 @@ namespace CinemaSystemManagementApp
             }
         }
 
+        /// <summary>
+        /// Перекрасить кнопку в родной цвет, после перехода на следующую.
+        /// </summary>
         private void Button_Leave(object sender, EventArgs e)
         {
             SeatElement button = (SeatElement)sender;
 
-            button.BackColor = currentButtonColor;
+            button.BackColor = selectedButtonColor;
         }
 
+        /// <summary>
+        /// При выборе кнопки (места) устанавливаем его значение.
+        /// </summary>
         private void Button_Click(object sender, EventArgs e)
         {
-            Color newColor = Color.Blue;
-
             SeatElement button = (SeatElement)sender;
 
-            if (button.BackColor == newColor)
+            if (button.BackColor == selectedSeatColor)
             {         
-                button.BackColor = currentButtonColor;
+                button.BackColor = selectedButtonColor;
 
-                currentSeat = null;
+                selectedSeat = null;
             }
             else
             {
-                currentButtonColor = button.BackColor;
-                button.BackColor = newColor;
+                selectedButtonColor = button.BackColor;
+                button.BackColor = selectedSeatColor;
 
-                currentSeat = button.Seat;
+                selectedSeat = button.Seat;
             }
-
-
         }
 
-        private void CloseFormButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        /// <summary>
+        /// Логика кнопки выбора места.
+        /// </summary>
         private void SetSeatButton_Click(object sender, EventArgs e)
         {
-            if (currentSeat == null)
+            if (selectedSeat == null)
             {
                 MessageBox.Show("Место не выбрано!");
             }
             else
             {
-                MessageBox.Show($"ряд - {currentSeat.RowNumber}, место - {currentSeat.SeatNumber}");
-
+                this.Close();
+                var form = new BookTicketForm(sessionId, selectedSeat);
+                form.Show();
             }
         }
+
+        /// <summary>
+        /// Логика кнопки закрыть окно.
+        /// </summary>
+        private void GoBackButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }       
     }
 }

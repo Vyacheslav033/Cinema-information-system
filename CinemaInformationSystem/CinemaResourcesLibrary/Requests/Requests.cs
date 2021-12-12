@@ -102,6 +102,20 @@ namespace CinemaResourcesLibrary
         }
 
         /// <summary>
+        /// Получить информацию о занытых местах по номеру сеанса.
+        /// </summary>
+        /// <returns></returns>
+        public static string GetReservedSeatsBySessionId(int sessionId)
+        {         
+            string query =
+                        "select Ряд, Место " +
+                        "from билет " +
+                        $"where `Сеансы_ID` = {sessionId}";
+
+            return query;
+        }
+
+        /// <summary>
         /// Добавить фильм.
         /// </summary>
         /// <param name="movie"></param>
@@ -203,7 +217,7 @@ namespace CinemaResourcesLibrary
                        "(`Дата покупки`, `Сотрудники_ID`, `Тип оплаты_ID`, `Сеансы_ID`, `Ряд`, `Место`) " +
                        "VALUES " +
                        $"(\"{ticket.PaymentData.ToString("yyyy-MM-dd")} {ticket.PaymentTime.ToLongTimeString()}\", " +
-                       $"{ticket.EmployeeId}, @paymentTypeId, {ticket.SessionId}, {ticket.RowNumber}, {ticket.PlaceNumber} ) ";
+                       $"{ticket.EmployeeId}, @paymentTypeId, {ticket.SessionId}, {ticket.Seat.RowNumber}, {ticket.Seat.SeatNumber})";
 
             return query;
         }
@@ -224,8 +238,8 @@ namespace CinemaResourcesLibrary
                         $"`Сотрудники_ID` = {ticket.EmployeeId}, " +
                         $"`Тип оплаты_ID` = @paymentTypeId, " +
                         $"`Сеансы_ID` = {ticket.SessionId}, " +
-                        $"`Ряд` = {ticket.RowNumber}, " +
-                        $"`Место`= {ticket.PlaceNumber} " +
+                        $"`Ряд` = {ticket.Seat.RowNumber}, " +
+                        $"`Место`= {ticket.Seat.SeatNumber} " +
                         $" where ID = {id}";
             return query;
         }

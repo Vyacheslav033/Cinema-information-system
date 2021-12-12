@@ -7,8 +7,8 @@ namespace CinemaResourcesLibrary
     /// </summary>
     public class Seat
     {
-        private int seatNumber;
         private int rowNumber;
+        private int seatNumber;
 
         /// <summary>
         /// Инициализатор класса Seat.
@@ -17,28 +17,28 @@ namespace CinemaResourcesLibrary
         /// <param name="rowNumber"> Номер ряда. </param>
         public Seat(int seatNumber, int rowNumber)
         {
-            if (seatNumber <= 0)
+            if ( seatNumber <= 0 )
             {
-                throw new ArgumentException("Номер места указан не верно.");
+                throw new ArgumentException("Места начинаются с номера 1.");
             }
-            if (rowNumber <= 0)
+            if ( rowNumber <= 0)
             {
-                throw new ArgumentException("Номер ряда указан не верно.");
+                throw new ArgumentException("Ряды начинаются с номера 1.");
             }
 
             this.seatNumber = seatNumber;
             this.rowNumber = rowNumber;
-        }
-
-        /// <summary>
-        /// Номер места.
-        /// </summary>
-        public int SeatNumber { get => seatNumber; }
+        }  
 
         /// <summary>
         /// Номер ряда.
         /// </summary>
         public int RowNumber { get => rowNumber; }
+
+        /// <summary>
+        /// Номер места.
+        /// </summary>
+        public int SeatNumber { get => seatNumber; }
 
         /// <summary>
         /// Сравнение мест на равенство.
@@ -51,11 +51,20 @@ namespace CinemaResourcesLibrary
             {
                 Seat s = (Seat)obj;
 
-                return (this.seatNumber == s.SeatNumber) && (this.rowNumber == s.RowNumber);
+                return (this.rowNumber == s.RowNumber) && (this.seatNumber == s.SeatNumber);
             }
 
             return false;
             
+        }
+
+        /// <summary>
+        /// Информация о месте.
+        /// </summary>
+        /// <returns> Возвращает информацию о месте. </returns>
+        public override string ToString()
+        {
+            return $"Ряд - {rowNumber}, место - {seatNumber}"; 
         }
     }
 }

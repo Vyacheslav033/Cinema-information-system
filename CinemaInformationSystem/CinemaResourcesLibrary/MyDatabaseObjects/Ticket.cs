@@ -12,11 +12,10 @@ namespace CinemaResourcesLibrary
         public int EmployeeId { get; }
         public string PaymentType { get; }
         public int SessionId { get; }
-        public int RowNumber { get; }
-        public int PlaceNumber { get; }
+        public Seat Seat { get; }
 
         public Ticket(DateTime paymentData, DateTime paymentTime, int employeeId,
-                      string paymentType, int sessionId, int rowNumber, int placeNumber)
+                      string paymentType, int sessionId, Seat seat)
         {
             if (paymentData == null)
             {
@@ -38,13 +37,9 @@ namespace CinemaResourcesLibrary
             {
                 throw new ArgumentException("Номер сеанса должен быть > 0.");
             }
-            if (rowNumber <= 0)
+            if (seat == null)
             {
-                throw new ArgumentException("Номер ряда должен быть > 0.");
-            }
-            if (placeNumber <= 0)
-            {
-                throw new ArgumentException("Номер места должно быть > 0.");
+                throw new ArgumentException("Место не было указано.");
             }
 
             PaymentData = paymentData;
@@ -52,8 +47,7 @@ namespace CinemaResourcesLibrary
             EmployeeId = employeeId;
             PaymentType = paymentType;
             SessionId = sessionId;
-            RowNumber = rowNumber;
-            PlaceNumber = placeNumber;
+            Seat = seat;
         }      
     }
 }
