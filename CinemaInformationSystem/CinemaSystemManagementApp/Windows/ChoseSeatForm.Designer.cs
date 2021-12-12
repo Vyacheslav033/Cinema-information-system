@@ -49,7 +49,7 @@ namespace CinemaSystemManagementApp
             this.MainPanel.Location = new System.Drawing.Point(56, 177);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1020, 501);
+            this.MainPanel.Size = new System.Drawing.Size(1321, 501);
             this.MainPanel.TabIndex = 5;
             // 
             // panel1
@@ -159,7 +159,7 @@ namespace CinemaSystemManagementApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(1)))), ((int)(((byte)(8)))));
-            this.ClientSize = new System.Drawing.Size(1135, 758);
+            this.ClientSize = new System.Drawing.Size(1417, 758);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.SelectedSeatColorPanel);
             this.Controls.Add(this.label3);

@@ -18,7 +18,7 @@ namespace CinemaSystemManagementApp
         private Color selectedSeatColor;
         private int sessionId;
 
-        public ChoseSeatForm(int sessionId)
+        public ChoseSeatForm(int sessionId, int rowsNumber, int seatsNumber)
         {
             InitializeComponent();
 
@@ -38,7 +38,7 @@ namespace CinemaSystemManagementApp
             {               
                 var seats = GetReservedSeats(sessionId);             
 
-                FillCinemaHall(9, 15, seats);
+                FillCinemaHall(rowsNumber, seatsNumber, seats);
             }
             catch (Exception ex)
             {

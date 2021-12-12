@@ -94,16 +94,35 @@ namespace CinemaSystemManagementApp
         /// <param name="e"></param>
         private void SetSeatButton_Click(object sender, EventArgs e)
         {
-            int sessionId = CheckSessionId(SessionNumberBox.Text);
-
-            if (sessionId < 1)
+            try
             {
-                return;
-            }
+                int sessionId = CheckSessionId(SessionNumberBox.Text);
 
-            this.Close();
-            var choseSeatForm = new ChoseSeatForm(sessionId);
-            choseSeatForm.Show();
+                if (sessionId < 1)
+                {
+                    return;
+                }
+
+                var myDatabase = new MyDatabase();
+                var hallData = myDatabase.MyСommand.GetReadData(Requests.GetInfoAboutHall(sessionId));
+
+                if (hallData.Count < 2)
+                {
+                    MessageBox.Show("Информация о зале данного сеанса не указана.");
+                    return;
+                }
+
+                int rows = Convert.ToInt32(hallData[0]);
+                int seats = Convert.ToInt32(hallData[1]);
+
+                this.Close();
+                var choseSeatForm = new ChoseSeatForm(sessionId, rows, seats);
+                choseSeatForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>

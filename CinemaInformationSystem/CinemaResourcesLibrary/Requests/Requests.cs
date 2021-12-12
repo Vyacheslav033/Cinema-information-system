@@ -224,6 +224,21 @@ namespace CinemaResourcesLibrary
         }
 
         /// <summary>
+        /// Получить информацию о зале по номеру сеанса.
+        /// </summary>
+        /// <param name="sessionId"></param>
+        /// <returns></returns>
+        public static string GetInfoAboutHall(int sessionId)
+        {
+            string query =
+                        "set @hallId = 0;" +
+                        $"select `Залы_ID` from сеансы where ID = {sessionId} into @hallId;" +
+                        $"select `Кол-во рядов`, `Кол-во мест в ряду` from залы where ID = @hallId;";
+
+            return query;
+        }
+
+        /// <summary>
         /// Изменить билет по id.
         /// </summary>
         /// <param name="id"></param>
