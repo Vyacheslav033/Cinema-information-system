@@ -1,7 +1,7 @@
 ﻿
 namespace CinemaSystemManagementApp
 {
-    partial class MoviePosterForm
+    partial class DataForUsersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -62,8 +62,8 @@ namespace CinemaSystemManagementApp
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.pictureBox1);
@@ -172,10 +172,9 @@ namespace CinemaSystemManagementApp
             this.panelHead.Name = "panelHead";
             this.panelHead.Size = new System.Drawing.Size(1380, 145);
             this.panelHead.TabIndex = 0;
-            this.panelHead.Text = "Афиша";
             this.panelHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // MoviePosterForm
+            // DataFotUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,7 +182,7 @@ namespace CinemaSystemManagementApp
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "MoviePosterForm";
+            this.Name = "DataFotUsersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PrintFilms";
             this.MainPanel.ResumeLayout(false);

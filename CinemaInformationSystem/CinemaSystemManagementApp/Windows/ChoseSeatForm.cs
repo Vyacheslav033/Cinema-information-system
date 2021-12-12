@@ -35,10 +35,8 @@ namespace CinemaSystemManagementApp
             SelectedSeatColorPanel.BackColor = selectedSeatColor;
 
             try
-            {
-                //
-                var seats = new List<Seat>();
-                //
+            {               
+                var seats = GetReservedSeats(sessionId);             
 
                 FillCinemaHall(9, 15, seats);
             }

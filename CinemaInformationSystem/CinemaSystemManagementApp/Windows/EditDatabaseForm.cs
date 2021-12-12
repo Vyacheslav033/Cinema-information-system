@@ -20,14 +20,24 @@ namespace CinemaSystemManagementApp
 
             ChooseForm(RequestType.Add, 1);
 
-            FillTable();
+            LoadData();
         }
 
-        private void FillTable()
+        /// <summary>
+        /// Заполнить таблицу данными.
+        /// </summary>
+        private void LoadData()
         {
-            var myDatabase = new MyDatabase();
+            try
+            {
+                var myDatabase = new MyDatabase();
 
-            DataTable.DataSource = myDatabase.MyСommand.GetDataTable(request);
+                DataTable.DataSource = myDatabase.MyСommand.GetDataTable(request);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -38,10 +48,8 @@ namespace CinemaSystemManagementApp
 
         private void UpdateDataButton_Click(object sender, EventArgs e)
         {
-            FillTable();           
+            LoadData();           
         }
-
-        
 
         private void EditEntryButton_Click(object sender, EventArgs e)
         {
@@ -113,7 +121,5 @@ namespace CinemaSystemManagementApp
 
             return null;
         }
-
-        
     }
 }

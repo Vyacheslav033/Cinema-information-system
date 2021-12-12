@@ -1,16 +1,18 @@
-﻿using CinemaResourcesLibrary;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-
+using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
 {
-    public partial class MoviePosterForm : Form
+    /// <summary>
+    /// Форма демонстрируюзая информацию для пользователей.
+    /// </summary>
+    public partial class DataForUsersForm : Form
     {
         private string request;
 
-        public MoviePosterForm(string request, string title)
+        public DataForUsersForm(string request, string title)
         {
             InitializeComponent();
 
@@ -45,16 +47,13 @@ namespace CinemaSystemManagementApp
             menu.Show();
         }
 
-
         private void LoadData()
         {
             try
             {
-                var connector = new MySQLConnector("localhost", "filmoteka", "root", "password");
+                var myDatabase = new MyDatabase();
 
-                var command = new MySQLСommand(connector);
-
-                DataTable.DataSource = command.GetDataTable(request);
+                DataTable.DataSource = myDatabase.MyСommand.GetDataTable(request);
             }
             catch (Exception ex)
             {
