@@ -186,6 +186,9 @@
     <EmbeddedResource Include="Windows\ChoseSeatForm.resx">
       <DependentUpon>ChoseSeatForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\DataForUsersForm.resx">
+      <DependentUpon>DataForUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\DeleteFromDatabaseForm.resx">
       <DependentUpon>DeleteFromDatabaseForm.cs</DependentUpon>
     </EmbeddedResource>

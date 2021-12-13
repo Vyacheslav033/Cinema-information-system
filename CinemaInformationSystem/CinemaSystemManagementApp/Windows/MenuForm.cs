@@ -5,6 +5,9 @@ using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
 {
+    /// <summary>
+    /// Форма главного меню.
+    /// </summary>
     public partial class MenuForm : Form
     {
         //передвижение окна
@@ -13,6 +16,7 @@ namespace CinemaSystemManagementApp
         public MenuForm()
         {
             InitializeComponent();
+
             this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void Exit_Click(object sender, EventArgs e)
@@ -29,8 +33,7 @@ namespace CinemaSystemManagementApp
         {
             Exit.ForeColor = Color.White;
         }
-
-        
+      
         private void MainPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -55,6 +58,11 @@ namespace CinemaSystemManagementApp
             EnterAdm.ForeColor = Color.FromArgb(244, 244, 244);
         }
 
+        /// <summary>
+        /// Открыть панель авторизации.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnterAdm_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -68,8 +76,8 @@ namespace CinemaSystemManagementApp
         private void BtnPrintAll_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var films = new DataForUsersForm(Requests.GetMovies(), "Фильмы");
-            films.Show();
+            var movies = new DataForUsersForm(RequestName.Movies);
+            movies.Show();
         }
 
         /// <summary>
@@ -78,7 +86,7 @@ namespace CinemaSystemManagementApp
         private void PrintSeans_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var sessions = new DataForUsersForm(Requests.GetSessions() , "Сеансы");
+            var sessions = new DataForUsersForm(RequestName.Sessions);
             sessions.Show();
         }
 

@@ -87,21 +87,24 @@ namespace CinemaSystemManagementApp
                 var myDatabase = new MyDatabase();
                 var movieData = myDatabase.MyСommand.GetReadData(Requests.GetMovieById(id));
 
-                if (movieData.Count != 7)
+                if (movieData.Count != 8)
                 {
-                    MessageBox.Show("Данный фильм не найден.");
+                    MessageBox.Show("Запрос на вывод фильма по ID нарушен.");
                 }
 
                 string movieName = movieData[1];
-                DateTime releaseData = Convert.ToDateTime(movieData[2]);
-                int duration = Convert.ToInt32(movieData[3]);
-                string movieType = movieData[4];
-                string allowedAgeId = movieData[5];
-                int producereId = Convert.ToInt32(movieData[6]);
+                int duration = Convert.ToInt32(movieData[2]);
+                DateTime releaseData = Convert.ToDateTime(movieData[3]);
+                string producerName = movieData[4];
+                string producerSurname = movieData[5];
+                string movieType = movieData[6];
+                string allowedAgeId = movieData[7];
 
                 MovieNameBox.Text = movieName;
                 MovieDatePicker.Value = releaseData;
                 MovieDurationBox.Text = duration.ToString();
+                ProducerNameBox.Text = producerName;
+                ProducerSurnameBox.Text = producerSurname;
             }
             catch (Exception ex)
             {

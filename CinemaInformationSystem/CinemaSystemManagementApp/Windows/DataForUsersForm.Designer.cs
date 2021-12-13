@@ -32,16 +32,17 @@ namespace CinemaSystemManagementApp
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textSearch = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.PictureBox();
+            this.ValueForSearchBox = new System.Windows.Forms.TextBox();
             this.BackToMenu = new System.Windows.Forms.Button();
             this.DataTable = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
             this.panelHead = new System.Windows.Forms.Label();
+            this.UpdateDataButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -62,12 +63,13 @@ namespace CinemaSystemManagementApp
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Maroon;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.textSearch);
+            this.panel1.Controls.Add(this.UpdateDataButton);
+            this.panel1.Controls.Add(this.SearchButton);
+            this.panel1.Controls.Add(this.ValueForSearchBox);
             this.panel1.Controls.Add(this.BackToMenu);
             this.panel1.Controls.Add(this.DataTable);
             this.panel1.Location = new System.Drawing.Point(23, 162);
@@ -76,24 +78,25 @@ namespace CinemaSystemManagementApp
             this.panel1.Size = new System.Drawing.Size(1336, 769);
             this.panel1.TabIndex = 1;
             // 
-            // pictureBox1
+            // SearchButton
             // 
-            this.pictureBox1.Image = global::CinemaSystemManagementApp.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(876, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 38);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.SearchButton.Image = global::CinemaSystemManagementApp.Properties.Resources.search;
+            this.SearchButton.Location = new System.Drawing.Point(876, 30);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(4);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(61, 38);
+            this.SearchButton.TabIndex = 3;
+            this.SearchButton.TabStop = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // textSearch
+            // ValueForSearchBox
             // 
-            this.textSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textSearch.Location = new System.Drawing.Point(945, 30);
-            this.textSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(356, 38);
-            this.textSearch.TabIndex = 2;
+            this.ValueForSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ValueForSearchBox.Location = new System.Drawing.Point(945, 30);
+            this.ValueForSearchBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ValueForSearchBox.Name = "ValueForSearchBox";
+            this.ValueForSearchBox.Size = new System.Drawing.Size(356, 38);
+            this.ValueForSearchBox.TabIndex = 2;
             // 
             // BackToMenu
             // 
@@ -174,7 +177,25 @@ namespace CinemaSystemManagementApp
             this.panelHead.TabIndex = 0;
             this.panelHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // DataFotUsersForm
+            // UpdateDataButton
+            // 
+            this.UpdateDataButton.AutoSize = true;
+            this.UpdateDataButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.UpdateDataButton.FlatAppearance.BorderSize = 0;
+            this.UpdateDataButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.UpdateDataButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
+            this.UpdateDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpdateDataButton.Location = new System.Drawing.Point(718, 30);
+            this.UpdateDataButton.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdateDataButton.Name = "UpdateDataButton";
+            this.UpdateDataButton.Size = new System.Drawing.Size(121, 38);
+            this.UpdateDataButton.TabIndex = 7;
+            this.UpdateDataButton.Text = "Обновить";
+            this.UpdateDataButton.UseVisualStyleBackColor = false;
+            this.UpdateDataButton.Click += new System.EventHandler(this.UpdateDataButton_Click);
+            // 
+            // DataForUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -182,13 +203,13 @@ namespace CinemaSystemManagementApp
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "DataFotUsersForm";
+            this.Name = "DataForUsersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PrintFilms";
             this.MainPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -205,8 +226,9 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Label panelHead;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BackToMenu;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textSearch;
+        private System.Windows.Forms.PictureBox SearchButton;
+        private System.Windows.Forms.TextBox ValueForSearchBox;
         private System.Windows.Forms.DataGridView DataTable;
+        private System.Windows.Forms.Button UpdateDataButton;
     }
 }
