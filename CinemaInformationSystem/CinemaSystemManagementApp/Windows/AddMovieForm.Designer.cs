@@ -32,6 +32,8 @@ namespace CinemaSystemManagementApp
             this.panelHead = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ProducerSurnameBox = new System.Windows.Forms.TextBox();
             this.AllowedAgeBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnlError = new System.Windows.Forms.Label();
@@ -52,8 +54,6 @@ namespace CinemaSystemManagementApp
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
-            this.ProducerSurnameBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -79,10 +79,11 @@ namespace CinemaSystemManagementApp
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(1)))), ((int)(((byte)(8)))));
             this.MainPanel.Controls.Add(this.panel1);
             this.MainPanel.Controls.Add(this.panel2);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(608, 931);
+            this.MainPanel.Size = new System.Drawing.Size(608, 944);
             this.MainPanel.TabIndex = 5;
             // 
             // panel1
@@ -112,8 +113,26 @@ namespace CinemaSystemManagementApp
             this.panel1.Location = new System.Drawing.Point(37, 167);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(539, 711);
+            this.panel1.Size = new System.Drawing.Size(539, 724);
             this.panel1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(281, 180);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 17);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Фамилия режиссёра";
+            // 
+            // ProducerSurnameBox
+            // 
+            this.ProducerSurnameBox.Location = new System.Drawing.Point(284, 203);
+            this.ProducerSurnameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ProducerSurnameBox.Name = "ProducerSurnameBox";
+            this.ProducerSurnameBox.Size = new System.Drawing.Size(201, 22);
+            this.ProducerSurnameBox.TabIndex = 19;
             // 
             // AllowedAgeBox
             // 
@@ -361,24 +380,6 @@ namespace CinemaSystemManagementApp
             this.HeaderLabel.TabIndex = 0;
             this.HeaderLabel.Text = "Добавить фильм";
             this.HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ProducerSurnameBox
-            // 
-            this.ProducerSurnameBox.Location = new System.Drawing.Point(284, 203);
-            this.ProducerSurnameBox.Margin = new System.Windows.Forms.Padding(4);
-            this.ProducerSurnameBox.Name = "ProducerSurnameBox";
-            this.ProducerSurnameBox.Size = new System.Drawing.Size(201, 22);
-            this.ProducerSurnameBox.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(281, 180);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 17);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Фамилия режиссёра";
             // 
             // AddMovieForm
             // 

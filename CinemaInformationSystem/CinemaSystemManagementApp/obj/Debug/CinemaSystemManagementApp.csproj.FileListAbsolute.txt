@@ -48,4 +48,3 @@ D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementAp
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.BookTicketForm.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.ChoseSeatForm.resources
 D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.DataForUsersForm.resources
-D:\C#\Cinema Information System\CinemaInformationSystem\CinemaSystemManagementApp\obj\Debug\CinemaSystemManagementApp.csproj.CopyComplete

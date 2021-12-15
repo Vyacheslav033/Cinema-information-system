@@ -22,6 +22,7 @@ namespace CinemaSystemManagementApp
         {
             InitializeComponent();
 
+
             selectedSeat = null;
             this.sessionId = sessionId;
             selectedButtonColor = Color.Green;
@@ -44,6 +45,15 @@ namespace CinemaSystemManagementApp
             {
                 MessageBox.Show(ex.Message);
             }
+
+            MainPanel.Location = new Point( (this.Width - MainPanel.Width) / 2, MainPanel.Location.Y);
+
+            ScreenPanel.Width = MainPanel.Width;
+            ScreenPanel.Location = new Point(MainPanel.Location.X, ScreenPanel.Location.Y);
+            SetSeatButton.Location = new Point((this.Width - SetSeatButton.Width) / 2, MainPanel.Location.Y + MainPanel.Height + 20);
+            InfoPanel.Location = new Point((this.Width - InfoPanel.Width) / 2, InfoPanel.Location.Y);
+            GoBackButton.Location = new Point(this.Width - 10, GoBackButton.Location.Y);
+            
         }
 
         /// <summary>
@@ -207,6 +217,8 @@ namespace CinemaSystemManagementApp
         private void GoBackButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }       
+        }
+
+    
     }
 }
