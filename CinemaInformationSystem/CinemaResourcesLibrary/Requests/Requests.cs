@@ -11,7 +11,7 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить все фильмы.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Запрос. </returns>
         public static string GetMovies()
         {
             string query =
@@ -28,8 +28,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить фильм по айди.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id"> Номер фильма. </param>
+        /// <returns> Запрос. </returns>
         public static string GetMovieById(int id)
         {
             string query =
@@ -46,8 +46,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить фильм по названию.
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
+        /// <param name="name"> Название фильма. </param>
+        /// <returns> Запрос. </returns>
         public static string GetMovieByName(string name)
         {
             string query =
@@ -64,7 +64,7 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить все сеансы.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Запрос. </returns>
         public static string GetSessions()
         {
             string query =
@@ -82,13 +82,16 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить сеанс по айди.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="id"> Номер сеанса. </param>
+        /// <returns> Запрос. </returns>
         public static string GetSessionById(int id)
         {
             string query =
-                        "select * " +
-                        "from сеансы " +
-                        $"where ID = {id}";
+                        "select сеансы.ID, сеансы.`дата-время сеанса`, сеансы.Цена,  " +
+                        "залы.`название зала`, сеансы.`Фильмы_ID` " +
+                        "from Сеансы " +
+                        "inner join Залы on Сеансы.Залы_ID = Залы.ID " +
+                        $"where сеансы.ID = {id}";
 
             return query;
         }
@@ -96,8 +99,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить сеанс по названию фильма
         /// </summary>
-        /// <param name="movieName"></param>
-        /// <returns></returns>
+        /// <param name="movieName"> Название фильма. </param>
+        /// <returns> Запрос. </returns>
         public static string GetSessionsByMovieName(string movieName)
         {
             string query =
@@ -114,7 +117,7 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить все билеты.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Запрос. </returns>
         public static string GetTickets()
         {
             string query =
@@ -132,13 +135,15 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить билет по айди.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Запрос. </returns>
         public static string GetTicketById(int id)
         {
             string query =
-                        "select * " +
+                        "select билет.ID, билет.`Дата покупки`, билет.`Сотрудники_ID`, " +
+                        "`тип оплаты`.Оплата, билет.`Сеансы_ID`, билет.`Ряд`, билет.`Место` " +
                         "from билет " +
-                        $"where ID = {id}";
+                        "inner join `тип оплаты` on билет.`Тип оплаты_ID` = `тип оплаты`.ID " +
+                        $"where билет.ID = {id}";
 
             return query;
         }
@@ -146,7 +151,7 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить информацию о занытых местах по номеру сеанса.
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Запрос. </returns>
         public static string GetReservedSeatsBySessionId(int sessionId)
         {         
             string query =
@@ -160,8 +165,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Добавить фильм.
         /// </summary>
-        /// <param name="movie"></param>
-        /// <returns></returns>
+        /// <param name="movie"> Фильм. </param>
+        /// <returns> Запрос. </returns>
         public static string AddMovie(Movie movie)
         {
             string query =
@@ -174,7 +179,7 @@ namespace CinemaResourcesLibrary
                         "INSERT INTO `фильмы` " +
                         "(`Название`, `Дата выхода`, `Длительность`, `Тип`, `Возраст_ID`, `Режиссер_ID`) " +
                         "VALUES " +
-                        $"(\"{movie.Name}\", '{movie.ReleaseDate.ToString("yyyy-MM-dd")}', {movie.Duration}, NULL, @allowedAgeId, @producerId)";
+                        $"(\"{movie.Name}\", \"{movie.ReleaseDate.ToString("yyyy-MM-dd")}\", {movie.Duration}, \"{movie.Type}\", @allowedAgeId, @producerId)";
 
             return query;
         }
@@ -182,9 +187,9 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Изменить фильм по id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="movie"></param>
-        /// <returns></returns>
+        /// <param name="id"> Номер фильма. </param>
+        /// <param name="movie"> Фильм. </param>
+        /// <returns> Запрос. </returns>
         public static string UpdateMovieById(int id, Movie movie)
         {
             string query =
@@ -198,7 +203,7 @@ namespace CinemaResourcesLibrary
                         $"SET `Название` = \"{movie.Name}\", " +
                         $"`Дата выхода` = \"{movie.ReleaseDate.ToString("yyyy-MM-dd")}\", " +
                         $"`Длительность` = {movie.Duration}, " +
-                        $"`Тип` = NULL, " +
+                        $"`Тип` = \"{movie.Type}\", " +
                         $"`Возраст_ID` = @allowedAgeId," +
                         $"`Режиссер_ID` = @producerId " +
                         $"where ID = {id};";                      
@@ -209,8 +214,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Добавить сеанс.
         /// </summary>
-        /// <param name="session"></param>
-        /// <returns></returns>
+        /// <param name="session"> Сеанс. </param>
+        /// <returns> Запрос. </returns>
         public static string AddSession(Session session)
         {
             string query =          
@@ -219,7 +224,7 @@ namespace CinemaResourcesLibrary
                        "INSERT INTO `сеансы` " +
                        "(`Дата-время сеанса`, `Цена`, `Залы_ID`, `Фильмы_ID`) " +
                        "VALUES " +
-                       $"(\"{session.MovieData.ToString("yyyy-MM-dd")} {session.MovieTime.ToLongTimeString()}\", {session.MoviePrice}, @hallId, {session.MovieId})";
+                       $"(\"{session.Data.ToString("yyyy-MM-dd")} {session.Time.ToLongTimeString()}\", {session.Price}, @hallId, {session.MovieId})";
 
             return query;
         }
@@ -227,17 +232,17 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Изменить сеанс по id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="session"></param>
-        /// <returns></returns>
+        /// <param name="id"> Номер сеанса. </param>
+        /// <param name="session"> Сеанс. </param>
+        /// <returns> Запрос. </returns>
         public static string UpdateSessionById(int id, Session session)
         {
             string query =
                         "set @hallId = 0;" +
                         $"SELECT `ID` FROM `залы` WHERE `Название зала` = \"{session.HallName}\" into @hallId;" +
                         "UPDATE `сеансы`" +
-                        $"SET `Дата-время сеанса` = \"{session.MovieData.ToString("yyyy-MM-dd")} {session.MovieTime.ToLongTimeString()}\", " +
-                        $"`Цена` = {session.MoviePrice}, " +
+                        $"SET `Дата-время сеанса` = \"{session.Data.ToString("yyyy-MM-dd")} {session.Time.ToLongTimeString()}\", " +
+                        $"`Цена` = {session.Price}, " +
                         $"`Залы_ID` = @hallId, " +
                         $"`Фильмы_ID` = {session.MovieId} " +
                         $"where ID = {id};";
@@ -248,8 +253,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Добавить билет.
         /// </summary>
-        /// <param name="ticket"></param>
-        /// <returns></returns>
+        /// <param name="ticket"> Билет. </param>
+        /// <returns> Запрос. </returns>
         public static string AddTicket(Ticket ticket)
         {
             string query =
@@ -267,8 +272,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Получить информацию о зале по номеру сеанса.
         /// </summary>
-        /// <param name="sessionId"></param>
-        /// <returns></returns>
+        /// <param name="sessionId"> Номер сеанса. </param>
+        /// <returns> Запрос. </returns>
         public static string GetInfoAboutHall(int sessionId)
         {
             string query =
@@ -282,9 +287,9 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Изменить билет по id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="ticket"></param>
-        /// <returns></returns>
+        /// <param name="id"> Номер билета. </param>
+        /// <param name="ticket"> Билет. </param>
+        /// <returns> Запрос. </returns>
         public static string UpdateTicketById(int id, Ticket ticket)
         {
             string query =
@@ -305,8 +310,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Удалить фильм по айди.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id"> Номер фильма. </param>
+        /// <returns> Запрос. </returns>
         public static string DeleteMovieById(int id)
         {
             string query =
@@ -320,8 +325,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Удалить сеанс по айди.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id"> Номер сеанса. </param>
+        /// <returns> Запрос. </returns>
         public static string DeleteSessionById(int id)
         {
             string query =
@@ -335,8 +340,8 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Удалить билет по айди.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id"> Номер билета. </param>
+        /// <returns>  Запрос.  </returns>
         public static string DeleteTicketById(int id)
         {
             string query =
@@ -350,9 +355,9 @@ namespace CinemaResourcesLibrary
         /// <summary>
         /// Проверка на администратора.
         /// </summary>
-        /// <param name="login"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="login"> Логин. </param>
+        /// <param name="password"> Пароль. </param>
+        /// <returns> Запрос. </returns>
         public static string IsAdministrator(string login, string password)
         {
             string query =
@@ -360,7 +365,5 @@ namespace CinemaResourcesLibrary
 
             return query;
         }
-
-
     }
 }

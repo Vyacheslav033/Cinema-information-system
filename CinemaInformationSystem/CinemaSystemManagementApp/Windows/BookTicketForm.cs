@@ -9,9 +9,19 @@ namespace CinemaSystemManagementApp
     /// </summary>
     public partial class BookTicketForm : Form
     {
+        /// <summary>
+        ///  Номер сеанса.
+        /// </summary>
         private int sessionId;
+
+        /// <summary>
+        /// Выбранное место.
+        /// </summary>
         private Seat selectedSeat;
 
+        /// <summary>
+        /// Инициализатор формы BookTicketForm.
+        /// </summary>
         public BookTicketForm()
         {
             InitializeComponent();
@@ -24,6 +34,14 @@ namespace CinemaSystemManagementApp
             selectedSeat = null;
         }
 
+
+        /// <summary>
+        /// Инициализатор формы BookTicketForm.
+        /// Данный конструктор используется после того как пользователь выбрал место.
+        /// Для передачи информации.
+        /// </summary>
+        /// <param name="sessionId"> Номер сеанса. </param>
+        /// <param name="selectedSeat"></param>
         public BookTicketForm(int sessionId, Seat selectedSeat)
         {
             InitializeComponent();
@@ -36,11 +54,10 @@ namespace CinemaSystemManagementApp
 
             SessionNumberBox.Text = sessionId.ToString();
             SeatInfoLabel.Text = selectedSeat.ToString();
-
         }
 
         /// <summary>
-        /// Логика кнопкии добавления бмлета.
+        /// Логика кнопкии добавления билета.
         /// </summary>
         private void BtnAdd_Click(object sender, EventArgs e)
         {
@@ -61,10 +78,12 @@ namespace CinemaSystemManagementApp
                 var ticket = new Ticket(time, time, employeeId,
                     PaymentTypeBox.Text, sessionId, selectedSeat);
 
+
                 string request = Requests.AddTicket(ticket);
 
                 var myDatabase = new MyDatabase();
 
+                // Добавляем билет.
                 if (myDatabase.MyСommand.RunRequest(request))
                     MessageBox.Show("Билет забронирован.");
                 else
@@ -90,12 +109,11 @@ namespace CinemaSystemManagementApp
         /// <summary>
         /// Логика кнопки выбора места.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void SetSeatButton_Click(object sender, EventArgs e)
         {
             try
             {
+                // Получаем номер сеанса введённый пользователем.
                 int sessionId = CheckSessionId(SessionNumberBox.Text);
 
                 if (sessionId < 1)
@@ -104,6 +122,8 @@ namespace CinemaSystemManagementApp
                 }
 
                 var myDatabase = new MyDatabase();
+
+                // Получаем информацию о зале.
                 var hallData = myDatabase.MyСommand.GetReadData(Requests.GetInfoAboutHall(sessionId));
 
                 if (hallData.Count < 2)
@@ -112,11 +132,12 @@ namespace CinemaSystemManagementApp
                     return;
                 }
 
-                int rows = Convert.ToInt32(hallData[0]);
-                int seats = Convert.ToInt32(hallData[1]);
+                int rowsCount = Convert.ToInt32(hallData[0]);
+                int seatsCount = Convert.ToInt32(hallData[1]);
 
                 this.Close();
-                var choseSeatForm = new ChoseSeatForm(sessionId, rows, seats);
+                // Открываем форму с выбором места.
+                var choseSeatForm = new ChoseSeatForm(sessionId, rowsCount, seatsCount);
                 choseSeatForm.Show();
             }
             catch (Exception ex)

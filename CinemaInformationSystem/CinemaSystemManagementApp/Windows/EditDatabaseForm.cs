@@ -5,11 +5,25 @@ using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
 {
+    /// <summary>
+    /// Форма с администратора с возможностью вывода, редактирования, удаления записей.
+    /// </summary>
     public partial class EditDatabaseForm : Form
     {
+        /// <summary>
+        /// Тип запроса.
+        /// </summary>
         private RequestName requestType;
+
+        /// <summary>
+        /// Запрос.
+        /// </summary>
         private string request;
 
+        /// <summary>
+        /// Инициализатор формы EditDatabaseForm.
+        /// </summary>
+        /// <param name="requestType"> Тип запроса. </param>
         public EditDatabaseForm(RequestName requestType)
         {           
             InitializeComponent();
@@ -40,17 +54,25 @@ namespace CinemaSystemManagementApp
             }
         }
 
-
+        /// <summary>
+        /// Логика кнопки выйти.
+        /// </summary>
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Логика кнопки обновления.
+        /// </summary>
         private void UpdateDataButton_Click(object sender, EventArgs e)
         {
             LoadData();           
         }
 
+        /// <summary>
+        /// Логика кнопки обновления.
+        /// </summary>
         private void EditEntryButton_Click(object sender, EventArgs e)
         {
             int selectedCellCount = DataTable.GetCellCount(DataGridViewElementStates.Selected);
@@ -82,18 +104,30 @@ namespace CinemaSystemManagementApp
             form.Show();
         }
 
+        /// <summary>
+        /// Логика кнопки добавления.
+        /// </summary>
         private void AddEntryButton_Click(object sender, EventArgs e)
         {
             var form = ChooseForm(RequestType.Add, 0);
             form.Show();
         }
 
+        /// <summary>
+        /// Логика кнопки удаления.
+        /// </summary>
         private void DeleteEntryButton_Click(object sender, EventArgs e)
         {
             var deleteForm = new DeleteFromDatabaseForm(requestType);
             deleteForm.Show();
         }
 
+        /// <summary>
+        /// Получение формы по типу запроса.
+        /// </summary>
+        /// <param name="type"> Тип запроса. </param>
+        /// <param name="idForEdit"> Номер записи для изменения. </param>
+        /// <returns> Форму. </returns>
         private Form ChooseForm(RequestType type, int idForEdit)
         {
 

@@ -108,6 +108,10 @@ namespace CinemaResourcesLibrary
             return data;
         }
 
+        /// <summary>
+        /// Проверка на пустой запрос.
+        /// </summary>
+        /// <param name="request"> Запрос. </param>
         private void IsEmptyRequest(string request)
         {
             if (string.IsNullOrWhiteSpace(request))

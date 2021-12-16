@@ -5,9 +5,15 @@ using System.Windows.Forms;
 
 namespace CinemaSystemManagementApp
 {
+    /// <summary>
+    /// Форма меню админа.
+    /// </summary>
     public partial class AdminMenuForm : Form
     {
-
+        /// <summary>
+        /// Инициализатор формы AdminMenuForm.
+        /// </summary>
+        /// <param name="adminLogin"> Логин админа. </param>
         public AdminMenuForm(string adminLogin)
         {
             InitializeComponent();
@@ -27,18 +33,27 @@ namespace CinemaSystemManagementApp
             GoBackButton.ForeColor = Color.White;
         }
 
+        /// <summary>
+        /// Открыть форму с фильмами.
+        /// </summary>
         private void ShowMoviesPanelButton_Click(object sender, EventArgs e)
         {
             var adminMoviesPanel = new EditDatabaseForm(RequestName.Movies);
             adminMoviesPanel.Show();
         }
 
+        /// <summary>
+        /// Открыть форму с сеансами.
+        /// </summary>
         private void ShowSessionsPanelButton_Click(object sender, EventArgs e)
         {
             var adminSessionsPanel = new EditDatabaseForm(RequestName.Sessions);
             adminSessionsPanel.Show();
         }
 
+        /// <summary>
+        /// Открыть форму с билетами.
+        /// </summary>
         private void ShowTicketsPanelButton_Click(object sender, EventArgs e)
         {
             var adminTicketsPanel = new EditDatabaseForm(RequestName.Tickets);

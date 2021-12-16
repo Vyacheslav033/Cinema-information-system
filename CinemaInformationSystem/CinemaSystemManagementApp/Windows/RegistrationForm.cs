@@ -1,7 +1,5 @@
 ﻿using CinemaResourcesLibrary;
-using MySql.Data.MySqlClient;
 using System;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,6 +12,9 @@ namespace CinemaSystemManagementApp
     {
         private Point lastPoint;
 
+        /// <summary>
+        /// Инициализатор формы RegistrationForm.
+        /// </summary>
         public RegistrationForm()
         {
             InitializeComponent();
@@ -24,12 +25,18 @@ namespace CinemaSystemManagementApp
             FillPasswordBox();
         }
 
+        /// <summary>
+        /// Заполнить поля логина.
+        /// </summary>
         private void FillLoginBox()
         {
             UserLogin.Text = "Введите логин";
             UserLogin.ForeColor = Color.Gray;
         }
 
+        /// <summary>
+        /// Заполнить поля пароля.
+        /// </summary>
         private void FillPasswordBox()
         {
             UserPassword.Text = "Введите пароль";
@@ -52,8 +59,6 @@ namespace CinemaSystemManagementApp
         {
             Exit.ForeColor = Color.White;
         }
-
-        
         private void MainPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -105,10 +110,9 @@ namespace CinemaSystemManagementApp
         }
 
         /// <summary>
+        /// Логика кнопки войти.
         /// Авторизация.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ButtLogin_Click(object sender, EventArgs e)
         {           
             try

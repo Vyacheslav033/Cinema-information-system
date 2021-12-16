@@ -16,7 +16,7 @@ namespace CinemaResourcesLibrary
         /// Инициализатор класса MySqlConnector.
         /// </summary>
         /// <param name="server"> Сервер. </param>
-        /// <param name="database"> Имя база данных. </param>
+        /// <param name="database"> Название база данных. </param>
         /// <param name="uid"> Идентификатор пользователя. </param>
         /// <param name="password"> Пароль. </param>
         public MySQLConnector(string server, string database, string uid, string password)

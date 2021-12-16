@@ -11,21 +11,49 @@ namespace CinemaSystemManagementApp
     /// </summary>
     public partial class ChoseSeatForm : Form
     {
+        /// <summary>
+        /// Выбранное место.
+        /// </summary>
         private Seat selectedSeat;
-        private Color selectedButtonColor;
+
+        /// <summary>
+        /// Переменная хранящая цвет только что выбранной кнопки.
+        /// </summary>
+        private Color selectedButtonColorTemp;
+
+        /// <summary>
+        /// Цвет забронированного места.
+        /// </summary>
         private Color reservedSeatColor;
+
+        /// <summary>
+        /// Цвет свободного места.
+        /// </summary>
         private Color freeSeatColor;
+
+        /// <summary>
+        /// Цвет места при нажатии.
+        /// </summary>
         private Color selectedSeatColor;
+
+        /// <summary>
+        /// Номер сеанса.
+        /// </summary>
         private int sessionId;
 
-        public ChoseSeatForm(int sessionId, int rowsNumber, int seatsNumber)
+        /// <summary>
+        /// Инициализатор формы ChoseSeatForm.
+        /// </summary>
+        /// <param name="sessionId"> Номер сеанса. </param>
+        /// <param name="rowsCount"> Количество рядов. </param>
+        /// <param name="seatsCount"> Количество мест в ряду. </param>
+        public ChoseSeatForm(int sessionId, int rowsCount, int seatsCount)
         {
             InitializeComponent();
 
-
             selectedSeat = null;
             this.sessionId = sessionId;
-            selectedButtonColor = Color.Green;
+            selectedButtonColorTemp = Color.Green;
             reservedSeatColor = Color.Red;
             freeSeatColor = Color.Green;
             selectedSeatColor = Color.Blue;
@@ -36,24 +64,23 @@ namespace CinemaSystemManagementApp
             SelectedSeatColorPanel.BackColor = selectedSeatColor;
 
             try
-            {               
-                var seats = GetReservedSeats(sessionId);             
+            {
+                var reservedSeats = GetReservedSeats(sessionId);             
 
-                FillCinemaHall(rowsNumber, seatsNumber, seats);
+                FillCinemaHall(rowsCount, seatsCount, reservedSeats);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+            // Настройки размера зала.
             MainPanel.Location = new Point( (this.Width - MainPanel.Width) / 2, MainPanel.Location.Y);
-
             ScreenPanel.Width = MainPanel.Width;
             ScreenPanel.Location = new Point(MainPanel.Location.X, ScreenPanel.Location.Y);
             SetSeatButton.Location = new Point((this.Width - SetSeatButton.Width) / 2, MainPanel.Location.Y + MainPanel.Height + 20);
             InfoPanel.Location = new Point((this.Width - InfoPanel.Width) / 2, InfoPanel.Location.Y);
-            GoBackButton.Location = new Point(this.Width - 10, GoBackButton.Location.Y);
-            
+            GoBackButton.Location = new Point(this.Width - 10, GoBackButton.Location.Y);          
         }
 
         /// <summary>
@@ -169,7 +196,7 @@ namespace CinemaSystemManagementApp
         {
             SeatElement button = (SeatElement)sender;
 
-            button.BackColor = selectedButtonColor;
+            button.BackColor = selectedButtonColorTemp;
         }
 
         /// <summary>
@@ -181,13 +208,13 @@ namespace CinemaSystemManagementApp
 
             if (button.BackColor == selectedSeatColor)
             {         
-                button.BackColor = selectedButtonColor;
+                button.BackColor = selectedButtonColorTemp;
 
                 selectedSeat = null;
             }
             else
             {
-                selectedButtonColor = button.BackColor;
+                selectedButtonColorTemp = button.BackColor;
                 button.BackColor = selectedSeatColor;
 
                 selectedSeat = button.Seat;
@@ -206,7 +233,7 @@ namespace CinemaSystemManagementApp
             else
             {
                 this.Close();
-                var form = new BookTicketForm(sessionId, selectedSeat);
+                var form = new BookTicketForm(this.sessionId, this.selectedSeat);
                 form.Show();
             }
         }
@@ -218,7 +245,5 @@ namespace CinemaSystemManagementApp
         {
             this.Close();
         }
-
-    
     }
 }

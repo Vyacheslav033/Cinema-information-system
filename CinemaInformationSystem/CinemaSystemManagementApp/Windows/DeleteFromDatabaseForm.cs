@@ -4,10 +4,20 @@ using CinemaResourcesLibrary;
 
 namespace CinemaSystemManagementApp
 {
+    /// <summary>
+    /// Форма удаления записей.
+    /// </summary>
     public partial class DeleteFromDatabaseForm : Form
     {
+        /// <summary>
+        /// Предмет запроса.
+        /// </summary>
         private RequestName requestType;
 
+        /// <summary>
+        /// Инициализатор формы DeleteFromDatabaseForm.
+        /// </summary>
+        /// <param name="requestType"> Предмет запроса. </param>
         public DeleteFromDatabaseForm(RequestName requestType)
         {
             InitializeComponent();
@@ -40,6 +50,10 @@ namespace CinemaSystemManagementApp
         }
 
    
+        /// <summary>
+        /// Логика кнопки удалить.
+        /// Реализация удаления.
+        /// </summary>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             int number = 0;

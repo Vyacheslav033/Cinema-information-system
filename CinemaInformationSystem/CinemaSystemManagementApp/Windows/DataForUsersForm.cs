@@ -6,13 +6,25 @@ using CinemaResourcesLibrary;
 namespace CinemaSystemManagementApp
 {
     /// <summary>
-    /// Форма демонстрируюзая информацию для пользователей.
+    /// Форма вывода информации для пользователей.
     /// </summary>
     public partial class DataForUsersForm : Form
     {
+        /// <summary>
+        /// Предмет запроса, что будет выводиться.
+        /// </summary>
         private RequestName requestName;
+
+        /// <summary>
+        /// Запрос.
+        /// </summary>
         private string request;
 
+
+        /// <summary>
+        /// Инициализатор класса DataForUsersForm.
+        /// </summary>
+        /// <param name="requestName"> Предмет запроса. </param>
         public DataForUsersForm(RequestName requestName)
         {
             InitializeComponent();
@@ -50,6 +62,9 @@ namespace CinemaSystemManagementApp
             Exit.ForeColor = Color.White;
         }
 
+        /// <summary>
+        /// Логика кнопки выйти. 
+        /// </summary>
         private void BackToMenu_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -110,8 +125,6 @@ namespace CinemaSystemManagementApp
         /// <summary>
         /// Обновление таблицы с данными.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void UpdateDataButton_Click(object sender, EventArgs e)
         {
             LoadData();

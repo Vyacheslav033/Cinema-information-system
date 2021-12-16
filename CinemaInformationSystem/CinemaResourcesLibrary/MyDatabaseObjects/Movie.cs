@@ -7,15 +7,53 @@ namespace CinemaResourcesLibrary
     /// </summary>
     public class Movie
     {
+        /// <summary>
+        /// Название.
+        /// </summary>
         public string Name { get; }
+
+        /// <summary>
+        /// Дата выхода.
+        /// </summary>
         public DateTime ReleaseDate { get; }
+
+        /// <summary>
+        /// Длительность.
+        /// </summary>
         public int Duration { get; }
+
+        /// <summary>
+        /// Разрешённый возраст.
+        /// </summary>
         public string AllowedAge { get; }
+        
+        /// <summary>
+        /// Имя режиссёра.
+        /// </summary>
         public string ProducerName { get; }
+
+        /// <summary>
+        /// Фамилия режиссёра.
+        /// </summary>
         public string ProducerSurname { get; }
 
+        /// <summary>
+        /// Тип.
+        /// </summary>
+        public string Type { get; }
+
+        /// <summary>
+        /// Инициализатор класса Movie.
+        /// </summary>
+        /// <param name="name"> Название. </param>
+        /// <param name="releaseDate"> Дата выхода. </param>
+        /// <param name="duration"> Длительность. </param>
+        /// <param name="allowedAge"> Разрешённый возраст. </param>
+        /// <param name="producerName"> Имя режиссёра. </param>
+        /// <param name="producerSurname"> Фамилия режиссёра. </param>
+        /// <param name="type"> Тип. </param>
         public Movie(string name, DateTime releaseDate, int duration,
-            string allowedAge, string producerName, string producerSurname)
+            string allowedAge, string producerName, string producerSurname, string type)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -48,6 +86,7 @@ namespace CinemaResourcesLibrary
             AllowedAge = allowedAge;
             ProducerName = producerName;
             ProducerSurname = producerSurname;
+            Type = type;
         }  
     }
 }
