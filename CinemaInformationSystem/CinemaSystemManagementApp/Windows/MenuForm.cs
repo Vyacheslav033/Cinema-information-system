@@ -93,14 +93,5 @@ namespace CinemaSystemManagementApp
             var sessions = new DataForUsersForm(RequestName.Sessions);
             sessions.Show();
         }
-
-        /// <summary>
-        /// Открыть форму для бронирования билетов.
-        /// </summary>
-        private void BuyPlace_Click(object sender, EventArgs e)
-        {
-            var form = new BookTicketForm();
-            form.Show();
-        }
     }
 }

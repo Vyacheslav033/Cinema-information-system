@@ -34,7 +34,6 @@ namespace CinemaSystemManagementApp
             this.MainPanel = new System.Windows.Forms.Panel();
             this.EnterAdm = new System.Windows.Forms.Label();
             this.BtnPrintAll = new System.Windows.Forms.Button();
-            this.BuyPlace = new System.Windows.Forms.Button();
             this.PrintSeans = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
@@ -54,14 +53,13 @@ namespace CinemaSystemManagementApp
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(1)))), ((int)(((byte)(8)))));
             this.MainPanel.Controls.Add(this.EnterAdm);
             this.MainPanel.Controls.Add(this.BtnPrintAll);
-            this.MainPanel.Controls.Add(this.BuyPlace);
             this.MainPanel.Controls.Add(this.PrintSeans);
             this.MainPanel.Controls.Add(this.panel2);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(439, 489);
+            this.MainPanel.Size = new System.Drawing.Size(439, 413);
             this.MainPanel.TabIndex = 3;
             this.MainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseDown);
             this.MainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
@@ -72,7 +70,7 @@ namespace CinemaSystemManagementApp
             this.EnterAdm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnterAdm.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EnterAdm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.EnterAdm.Location = new System.Drawing.Point(76, 439);
+            this.EnterAdm.Location = new System.Drawing.Point(73, 360);
             this.EnterAdm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EnterAdm.Name = "EnterAdm";
             this.EnterAdm.Size = new System.Drawing.Size(277, 27);
@@ -99,24 +97,6 @@ namespace CinemaSystemManagementApp
             this.BtnPrintAll.Text = "Фильмы";
             this.BtnPrintAll.UseVisualStyleBackColor = false;
             this.BtnPrintAll.Click += new System.EventHandler(this.BtnPrintAll_Click);
-            // 
-            // BuyPlace
-            // 
-            this.BuyPlace.AutoSize = true;
-            this.BuyPlace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BuyPlace.FlatAppearance.BorderSize = 0;
-            this.BuyPlace.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(2)))), ((int)(((byte)(15)))));
-            this.BuyPlace.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
-            this.BuyPlace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BuyPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BuyPlace.Location = new System.Drawing.Point(20, 340);
-            this.BuyPlace.Margin = new System.Windows.Forms.Padding(4);
-            this.BuyPlace.Name = "BuyPlace";
-            this.BuyPlace.Size = new System.Drawing.Size(407, 53);
-            this.BuyPlace.TabIndex = 3;
-            this.BuyPlace.Text = "Забронировать место";
-            this.BuyPlace.UseVisualStyleBackColor = false;
-            this.BuyPlace.Click += new System.EventHandler(this.BuyPlace_Click);
             // 
             // PrintSeans
             // 
@@ -183,7 +163,7 @@ namespace CinemaSystemManagementApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 489);
+            this.ClientSize = new System.Drawing.Size(439, 413);
             this.Controls.Add(this.MainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -203,7 +183,6 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Exit;
         private System.Windows.Forms.Label panelHead;
-        private System.Windows.Forms.Button BuyPlace;
         private System.Windows.Forms.Button PrintSeans;
         private System.Windows.Forms.Button BtnPrintAll;
         private System.Windows.Forms.Label EnterAdm;

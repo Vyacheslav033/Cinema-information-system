@@ -31,10 +31,7 @@ namespace CinemaSystemManagementApp
         {
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SeatInfoLabel = new System.Windows.Forms.Label();
             this.SetSeatButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.SessionNumberBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PaymentTypeBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,6 +41,8 @@ namespace CinemaSystemManagementApp
             this.Exit = new System.Windows.Forms.Label();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.panelHead = new System.Windows.Forms.Label();
+            this.SeatInfoLabel = new System.Windows.Forms.Label();
+            this.SessionNumberLabel = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -65,10 +64,9 @@ namespace CinemaSystemManagementApp
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.SessionNumberLabel);
             this.panel1.Controls.Add(this.SeatInfoLabel);
             this.panel1.Controls.Add(this.SetSeatButton);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.SessionNumberBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PaymentTypeBox);
             this.panel1.Controls.Add(this.panel3);
@@ -78,16 +76,6 @@ namespace CinemaSystemManagementApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 400);
             this.panel1.TabIndex = 1;
-            // 
-            // SeatInfoLabel
-            // 
-            this.SeatInfoLabel.AutoSize = true;
-            this.SeatInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SeatInfoLabel.Location = new System.Drawing.Point(178, 128);
-            this.SeatInfoLabel.Name = "SeatInfoLabel";
-            this.SeatInfoLabel.Size = new System.Drawing.Size(107, 29);
-            this.SeatInfoLabel.TabIndex = 27;
-            this.SeatInfoLabel.Text = "Seat Info";
             // 
             // SetSeatButton
             // 
@@ -99,25 +87,6 @@ namespace CinemaSystemManagementApp
             this.SetSeatButton.Text = "Выбрать место";
             this.SetSeatButton.UseVisualStyleBackColor = true;
             this.SetSeatButton.Click += new System.EventHandler(this.SetSeatButton_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(132, 66);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 17);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Номер сеанса";
-            // 
-            // SessionNumberBox
-            // 
-            this.SessionNumberBox.Location = new System.Drawing.Point(137, 89);
-            this.SessionNumberBox.Margin = new System.Windows.Forms.Padding(4);
-            this.SessionNumberBox.Name = "SessionNumberBox";
-            this.SessionNumberBox.Size = new System.Drawing.Size(265, 22);
-            this.SessionNumberBox.TabIndex = 24;
-            this.SessionNumberBox.TextChanged += new System.EventHandler(this.SessionNumberBox_TextChanged);
             // 
             // label1
             // 
@@ -240,6 +209,25 @@ namespace CinemaSystemManagementApp
             this.panelHead.Text = "Leviafan";
             this.panelHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // SeatInfoLabel
+            // 
+            this.SeatInfoLabel.AutoSize = true;
+            this.SeatInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SeatInfoLabel.Location = new System.Drawing.Point(159, 130);
+            this.SeatInfoLabel.Name = "SeatInfoLabel";
+            this.SeatInfoLabel.Size = new System.Drawing.Size(0, 29);
+            this.SeatInfoLabel.TabIndex = 27;
+            // 
+            // SessionNumberLabel
+            // 
+            this.SessionNumberLabel.AutoSize = true;
+            this.SessionNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SessionNumberLabel.Location = new System.Drawing.Point(159, 79);
+            this.SessionNumberLabel.Name = "SessionNumberLabel";
+            this.SessionNumberLabel.Size = new System.Drawing.Size(195, 29);
+            this.SessionNumberLabel.TabIndex = 28;
+            this.SessionNumberLabel.Text = "Номер сеанса - ";
+            // 
             // BookTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -274,9 +262,8 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox PaymentTypeBox;
         private System.Windows.Forms.Label panelHead;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox SessionNumberBox;
         private System.Windows.Forms.Button SetSeatButton;
         private System.Windows.Forms.Label SeatInfoLabel;
+        private System.Windows.Forms.Label SessionNumberLabel;
     }
 }

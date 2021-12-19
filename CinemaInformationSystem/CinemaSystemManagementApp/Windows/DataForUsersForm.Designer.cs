@@ -32,6 +32,7 @@ namespace CinemaSystemManagementApp
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.UpdateDataButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.PictureBox();
             this.ValueForSearchBox = new System.Windows.Forms.TextBox();
             this.BackToMenu = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@ namespace CinemaSystemManagementApp
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
             this.panelHead = new System.Windows.Forms.Label();
-            this.UpdateDataButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchButton)).BeginInit();
@@ -77,6 +77,24 @@ namespace CinemaSystemManagementApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1336, 769);
             this.panel1.TabIndex = 1;
+            // 
+            // UpdateDataButton
+            // 
+            this.UpdateDataButton.AutoSize = true;
+            this.UpdateDataButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.UpdateDataButton.FlatAppearance.BorderSize = 0;
+            this.UpdateDataButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.UpdateDataButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
+            this.UpdateDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpdateDataButton.Location = new System.Drawing.Point(718, 30);
+            this.UpdateDataButton.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdateDataButton.Name = "UpdateDataButton";
+            this.UpdateDataButton.Size = new System.Drawing.Size(121, 38);
+            this.UpdateDataButton.TabIndex = 7;
+            this.UpdateDataButton.Text = "Обновить";
+            this.UpdateDataButton.UseVisualStyleBackColor = false;
+            this.UpdateDataButton.Click += new System.EventHandler(this.UpdateDataButton_Click);
             // 
             // SearchButton
             // 
@@ -134,6 +152,7 @@ namespace CinemaSystemManagementApp
             this.DataTable.RowHeadersWidth = 51;
             this.DataTable.Size = new System.Drawing.Size(1273, 613);
             this.DataTable.TabIndex = 0;
+            this.DataTable.DoubleClick += new System.EventHandler(this.DataTable_DoubleClick);
             // 
             // panel2
             // 
@@ -176,24 +195,6 @@ namespace CinemaSystemManagementApp
             this.panelHead.Size = new System.Drawing.Size(1380, 145);
             this.panelHead.TabIndex = 0;
             this.panelHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // UpdateDataButton
-            // 
-            this.UpdateDataButton.AutoSize = true;
-            this.UpdateDataButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.UpdateDataButton.FlatAppearance.BorderSize = 0;
-            this.UpdateDataButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.UpdateDataButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Snow;
-            this.UpdateDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UpdateDataButton.Location = new System.Drawing.Point(718, 30);
-            this.UpdateDataButton.Margin = new System.Windows.Forms.Padding(4);
-            this.UpdateDataButton.Name = "UpdateDataButton";
-            this.UpdateDataButton.Size = new System.Drawing.Size(121, 38);
-            this.UpdateDataButton.TabIndex = 7;
-            this.UpdateDataButton.Text = "Обновить";
-            this.UpdateDataButton.UseVisualStyleBackColor = false;
-            this.UpdateDataButton.Click += new System.EventHandler(this.UpdateDataButton_Click);
             // 
             // DataForUsersForm
             // 

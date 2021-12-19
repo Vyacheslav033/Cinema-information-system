@@ -83,11 +83,11 @@ namespace CinemaSystemManagementApp
 
                 DataTable.DataSource = myDatabase.MyСommand.GetDataTable(request);
 
-                // Скрываем колонку с ID/
-                if (DataTable.Columns.Count > 0)
-                {
-                    DataTable.Columns[0].Visible = false;
-                }
+                // Скрываем колонку с ID.
+                //if (DataTable.Columns.Count > 0)
+                //{
+                //    DataTable.Columns[0].Visible = false;
+                //}
             }
             catch (Exception ex)
             {
@@ -134,6 +134,40 @@ namespace CinemaSystemManagementApp
         private void UpdateDataButton_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        /// <summary>
+        /// Реализация бронирования билета при двойном нажатии на дату.
+        /// </summary>
+        private void DataTable_DoubleClick(object sender, EventArgs e)
+        {
+            if (requestName == RequestName.Sessions)
+            {
+                int selectedCellCount = DataTable.GetCellCount(DataGridViewElementStates.Selected);
+
+                if (selectedCellCount == 1)
+                {
+                    int row = DataTable.SelectedCells[0].RowIndex;
+                    int column = DataTable.SelectedCells[0].ColumnIndex;
+
+
+                    // Если выбран столбец с датой.
+                    if ( (DataTable.Columns[column].Name == "Дата и время сеанса") || (column == 2))
+                    {
+                        int id = 0;
+                        string value = DataTable.Rows[row].Cells[0].Value.ToString();
+
+                        if (!int.TryParse(value, out id))
+                        {
+                            MessageBox.Show("Ячейка с предполагаемым айди записи имеет неверный формат.");
+                            return;
+                        }
+
+                        var form = new BookTicketForm(id, null);
+                        form.Show();
+                    }
+                }              
+            }
         }
     }
 }

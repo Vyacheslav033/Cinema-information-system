@@ -22,24 +22,6 @@ namespace CinemaSystemManagementApp
         /// <summary>
         /// Инициализатор формы BookTicketForm.
         /// </summary>
-        public BookTicketForm()
-        {
-            InitializeComponent();
-
-            this.StartPosition = FormStartPosition.CenterScreen;
-            PaymentTypeBox.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            SeatInfoLabel.Text = "";
-            sessionId = 0;
-            selectedSeat = null;
-        }
-
-
-        /// <summary>
-        /// Инициализатор формы BookTicketForm.
-        /// Данный конструктор используется после того как пользователь выбрал место.
-        /// Для передачи информации.
-        /// </summary>
         /// <param name="sessionId"> Номер сеанса. </param>
         /// <param name="selectedSeat"></param>
         public BookTicketForm(int sessionId, Seat selectedSeat)
@@ -52,8 +34,12 @@ namespace CinemaSystemManagementApp
             this.sessionId = sessionId;
             this.selectedSeat = selectedSeat;
 
-            SessionNumberBox.Text = sessionId.ToString();
-            SeatInfoLabel.Text = selectedSeat.ToString();
+            SessionNumberLabel.Text += sessionId.ToString();
+
+            if (selectedSeat != null)
+            {
+                SeatInfoLabel.Text = selectedSeat.ToString();
+            }
         }
 
         /// <summary>
@@ -66,17 +52,10 @@ namespace CinemaSystemManagementApp
                 // TODO: айди сотрудника
                 int employeeId = 1;
 
-                int sessionId = CheckSessionId(SessionNumberBox.Text);
-
-                if (sessionId < 1)
-                {
-                    return;
-                }
-
                 DateTime time = DateTime.Now;
 
                 var ticket = new Ticket(time, time, employeeId,
-                    PaymentTypeBox.Text, sessionId, selectedSeat);
+                    PaymentTypeBox.Text, this.sessionId, selectedSeat);
 
 
                 string request = Requests.AddTicket(ticket);
@@ -113,18 +92,10 @@ namespace CinemaSystemManagementApp
         {
             try
             {
-                // Получаем номер сеанса введённый пользователем.
-                int sessionId = CheckSessionId(SessionNumberBox.Text);
-
-                if (sessionId < 1)
-                {
-                    return;
-                }
-
                 var myDatabase = new MyDatabase();
 
                 // Получаем информацию о зале.
-                var hallData = myDatabase.MyСommand.GetReadData(Requests.GetInfoAboutHall(sessionId));
+                var hallData = myDatabase.MyСommand.GetReadData(Requests.GetInfoAboutHall(this.sessionId));
 
                 if (hallData.Count < 2)
                 {
@@ -143,43 +114,6 @@ namespace CinemaSystemManagementApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Проверяем введённый номер сеанса.
-        /// </summary>
-        /// <param name="expectedSessionId"> Номер сеанса. </param>
-        /// <returns> Возращает номер сеанса, если номер санса не корректный возвращает -1. </returns>
-        private int CheckSessionId(string expectedSessionId)
-        {
-            int sessionId = -1;
-
-            if (!int.TryParse(expectedSessionId, out sessionId))
-            {
-                MessageBox.Show("Номер сеанса не был выбран.");
-                return -1;
-            }
-            else if (sessionId <= 0)
-            {
-                MessageBox.Show("Номер сеанса должен быть > 0.");
-                return -1;
-            }
-
-            return sessionId;
-        }
-
-        /// <summary>
-        /// Если номер сеанса изменился, то обнуляем выбранное место.
-        /// </summary>
-        private void SessionNumberBox_TextChanged(object sender, EventArgs e)
-        {
-            string newId = SessionNumberBox.Text;
-
-            if (this.sessionId.ToString() != newId)
-            {
-                selectedSeat = null;
-                SeatInfoLabel.Text = "";
             }
         }
     }
