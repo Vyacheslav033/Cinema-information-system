@@ -42,7 +42,7 @@ namespace CinemaSystemManagementApp
 
             this.requestName = requestName;
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Normal;         
 
             LoadData();
         }
@@ -82,6 +82,12 @@ namespace CinemaSystemManagementApp
                 var myDatabase = new MyDatabase();          
 
                 DataTable.DataSource = myDatabase.MyСommand.GetDataTable(request);
+
+                // Скрываем колонку с ID/
+                if (DataTable.Columns.Count > 0)
+                {
+                    DataTable.Columns[0].Visible = false;
+                }
             }
             catch (Exception ex)
             {

@@ -13,7 +13,7 @@ namespace CinemaSystemManagementApp
         /// <summary>
         /// Тип запроса.
         /// </summary>
-        private RequestName requestType;
+        private RequestName requestName;
 
         /// <summary>
         /// Запрос.
@@ -23,14 +23,14 @@ namespace CinemaSystemManagementApp
         /// <summary>
         /// Инициализатор формы EditDatabaseForm.
         /// </summary>
-        /// <param name="requestType"> Тип запроса. </param>
-        public EditDatabaseForm(RequestName requestType)
+        /// <param name="requestName"> Тип запроса. </param>
+        public EditDatabaseForm(RequestName requestName)
         {           
             InitializeComponent();
 
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            this.requestType = requestType;
+            this.requestName = requestName;
 
             ChooseForm(RequestType.Add, 1);
 
@@ -143,15 +143,15 @@ namespace CinemaSystemManagementApp
                 {
                     string request = "";
 
-                    if (requestType == RequestName.Movies)
+                    if (requestName == RequestName.Movies)
                     {
                         request = Requests.DeleteMovieById(id);
                     }
-                    else if (requestType == RequestName.Sessions)
+                    else if (requestName == RequestName.Sessions)
                     {
                         request = Requests.DeleteSessionById(id);
                     }
-                    else if (requestType == RequestName.Tickets)
+                    else if (requestName == RequestName.Tickets)
                     {
                         request = Requests.DeleteTicketById(id);
                     }
@@ -179,21 +179,21 @@ namespace CinemaSystemManagementApp
         private Form ChooseForm(RequestType type, int idForEdit)
         {
 
-            if (requestType == RequestName.Movies)
+            if (requestName == RequestName.Movies)
             {
                 HeadPanel.Text = "Фильмы";
                 this.request = Requests.GetMovies();
 
                 return new AddMovieForm(type, idForEdit);
             }
-            else if (requestType == RequestName.Sessions)
+            else if (requestName == RequestName.Sessions)
             {
                 HeadPanel.Text = "Сеансы";
                 this.request = Requests.GetSessions();
 
                 return new AddSessionForm(type, idForEdit);
             }
-            else if (requestType == RequestName.Tickets)
+            else if (requestName == RequestName.Tickets)
             {
                 HeadPanel.Text = "Билеты";
                 this.request = Requests.GetTickets();
@@ -202,6 +202,38 @@ namespace CinemaSystemManagementApp
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Логика поиска.
+        /// </summary>
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string movieName = ValueForSearchBox.Text;
+                string searchRequest = "";
+
+                if ( !string.IsNullOrWhiteSpace(movieName) )
+                {
+                    if (requestName == RequestName.Movies)
+                    {
+                        searchRequest = Requests.GetMovieByName(movieName);
+                    }
+                    else if (requestName == RequestName.Sessions)
+                    {
+                        searchRequest = Requests.GetSessionsByMovieName(movieName);
+                    }
+
+                    var myDatabase = new MyDatabase();
+
+                    DataTable.DataSource = myDatabase.MyСommand.GetDataTable(searchRequest);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

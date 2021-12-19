@@ -29,7 +29,7 @@ namespace CinemaSystemManagementApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.HeadPanel = new System.Windows.Forms.Label();
             this.AddEntryButton = new System.Windows.Forms.Button();
             this.DataTable = new System.Windows.Forms.DataGridView();
@@ -37,14 +37,14 @@ namespace CinemaSystemManagementApp
             this.UpdateDataButton = new System.Windows.Forms.Button();
             this.DeleteEntryButton = new System.Windows.Forms.Button();
             this.EditEntryButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textSearch = new System.Windows.Forms.TextBox();
+            this.SearchButton = new System.Windows.Forms.PictureBox();
+            this.ValueForSearchBox = new System.Windows.Forms.TextBox();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Exit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchButton)).BeginInit();
             this.MainPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -85,8 +85,8 @@ namespace CinemaSystemManagementApp
             // 
             this.DataTable.AllowUserToAddRows = false;
             this.DataTable.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.DataTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.DataTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DataTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataTable.BackgroundColor = System.Drawing.Color.White;
             this.DataTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -109,8 +109,8 @@ namespace CinemaSystemManagementApp
             this.panel1.Controls.Add(this.UpdateDataButton);
             this.panel1.Controls.Add(this.DeleteEntryButton);
             this.panel1.Controls.Add(this.EditEntryButton);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.textSearch);
+            this.panel1.Controls.Add(this.SearchButton);
+            this.panel1.Controls.Add(this.ValueForSearchBox);
             this.panel1.Controls.Add(this.AddEntryButton);
             this.panel1.Controls.Add(this.DataTable);
             this.panel1.Location = new System.Drawing.Point(63, 174);
@@ -173,24 +173,25 @@ namespace CinemaSystemManagementApp
             this.EditEntryButton.UseVisualStyleBackColor = false;
             this.EditEntryButton.Click += new System.EventHandler(this.EditEntryButton_Click);
             // 
-            // pictureBox1
+            // SearchButton
             // 
-            this.pictureBox1.Image = global::CinemaSystemManagementApp.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(990, 43);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 34);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.SearchButton.Image = global::CinemaSystemManagementApp.Properties.Resources.search;
+            this.SearchButton.Location = new System.Drawing.Point(990, 43);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(4);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(37, 34);
+            this.SearchButton.TabIndex = 3;
+            this.SearchButton.TabStop = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // textSearch
+            // ValueForSearchBox
             // 
-            this.textSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textSearch.Location = new System.Drawing.Point(1049, 43);
-            this.textSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(293, 38);
-            this.textSearch.TabIndex = 2;
+            this.ValueForSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ValueForSearchBox.Location = new System.Drawing.Point(1049, 43);
+            this.ValueForSearchBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ValueForSearchBox.Name = "ValueForSearchBox";
+            this.ValueForSearchBox.Size = new System.Drawing.Size(293, 38);
+            this.ValueForSearchBox.TabIndex = 2;
             // 
             // MainPanel
             // 
@@ -244,7 +245,7 @@ namespace CinemaSystemManagementApp
             ((System.ComponentModel.ISupportInitialize)(this.DataTable)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchButton)).EndInit();
             this.MainPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -259,8 +260,8 @@ namespace CinemaSystemManagementApp
         private System.Windows.Forms.DataGridView DataTable;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button EditEntryButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textSearch;
+        private System.Windows.Forms.PictureBox SearchButton;
+        private System.Windows.Forms.TextBox ValueForSearchBox;
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Exit;
