@@ -224,6 +224,10 @@ namespace CinemaSystemManagementApp
                     {
                         searchRequest = Requests.GetSessionsByMovieName(movieName);
                     }
+                    else if (requestName == RequestName.Tickets)
+                    {
+                        searchRequest = Requests.GetTicketsByMovieName(movieName);
+                    }
 
                     var myDatabase = new MyDatabase();
 

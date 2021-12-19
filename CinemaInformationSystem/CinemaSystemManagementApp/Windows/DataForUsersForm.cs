@@ -84,10 +84,10 @@ namespace CinemaSystemManagementApp
                 DataTable.DataSource = myDatabase.MyСommand.GetDataTable(request);
 
                 // Скрываем колонку с ID.
-                //if (DataTable.Columns.Count > 0)
-                //{
-                //    DataTable.Columns[0].Visible = false;
-                //}
+                if (DataTable.Columns.Count > 0)
+                {
+                    DataTable.Columns[0].Visible = false;
+                }
             }
             catch (Exception ex)
             {
