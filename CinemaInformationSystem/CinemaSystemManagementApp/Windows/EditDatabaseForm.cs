@@ -75,12 +75,28 @@ namespace CinemaSystemManagementApp
         /// </summary>
         private void EditEntryButton_Click(object sender, EventArgs e)
         {
+            int id = CheckSelectedRecord("редактирования");
+
+            if (id != -1)
+            {
+                var form = ChooseForm(RequestType.Update, id);
+                form.Show();
+            }
+        }
+
+        /// <summary>
+        /// Проверка выбора записи для редактирования/удаления.
+        /// </summary>
+        /// <param name="errorMessegeType"> Сообщение об ошибке. </param>
+        /// <returns> Возращает номер выбранной записи. </returns>
+        private int CheckSelectedRecord(string errorMessegeType)
+        {
             int selectedCellCount = DataTable.GetCellCount(DataGridViewElementStates.Selected);
 
             if (selectedCellCount != 1)
             {
-                MessageBox.Show("Выберите одну запись для редактирования.");
-                return;
+                MessageBox.Show($"Выберите одну запись для {errorMessegeType}.");
+                return -1;
             }
 
             int row = DataTable.SelectedCells[0].RowIndex;
@@ -88,21 +104,22 @@ namespace CinemaSystemManagementApp
 
             if (column != 0)
             {
-                MessageBox.Show("Выберите номер запись для редактирования.");
-                return;
+                MessageBox.Show($"Выберите номер записи для {errorMessegeType}.");
+                return -1;
             }
 
+            int id = 0;
             string value = DataTable.Rows[row].Cells[column].Value.ToString();
-            int intValue = 0;
 
-            if ( !int.TryParse(value, out intValue) )
+            if (!int.TryParse(value, out id))
             {
-                MessageBox.Show("Ячейка с предполагаемым айди записи имеет не верный формат.");
+                MessageBox.Show("Ячейка с предполагаемым айди записи имеет неверный формат.");
+                return -1;
             }
 
-            var form = ChooseForm(RequestType.Update, intValue);
-            form.Show();
+            return id;
         }
+
 
         /// <summary>
         /// Логика кнопки добавления.
@@ -118,8 +135,39 @@ namespace CinemaSystemManagementApp
         /// </summary>
         private void DeleteEntryButton_Click(object sender, EventArgs e)
         {
-            var deleteForm = new DeleteFromDatabaseForm(requestType);
-            deleteForm.Show();
+            try
+            {
+                int id = CheckSelectedRecord("удаления");
+
+                if (id != -1)
+                {
+                    string request = "";
+
+                    if (requestType == RequestName.Movies)
+                    {
+                        request = Requests.DeleteMovieById(id);
+                    }
+                    else if (requestType == RequestName.Sessions)
+                    {
+                        request = Requests.DeleteSessionById(id);
+                    }
+                    else if (requestType == RequestName.Tickets)
+                    {
+                        request = Requests.DeleteTicketById(id);
+                    }
+
+                    var myDatabase = new MyDatabase();
+
+                    if (myDatabase.MyСommand.RunRequest(request))
+                        MessageBox.Show("Запись удалена.");
+                    else
+                        MessageBox.Show("Запись не была удалена.");
+                }   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
